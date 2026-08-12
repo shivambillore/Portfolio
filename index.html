@@ -11,26 +11,13 @@
             theme: {
                 extend: {
                     colors: {
-                        stone: {
-                            950: '#0c0a09',
-                            900: '#1c1917',
-                            800: '#292524',
-                            700: '#44403c',
-                            600: '#57534e',
-                            400: '#a8a29e',
-                            300: '#d6d3d1',
-                            200: '#e7e5e4',
-                            100: '#f5f5f4',
-                            50:  '#fafaf9',
-                        },
-                        amber: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                        }
+                        canvas: '#f7f7f5',
+                        ink: '#111111',
+                        muted: '#666666',
+                        line: '#e2e2dc',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     }
                 }
@@ -40,1005 +27,611 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .editorial-title { font-family: 'Playfair Display', serif; }
-        .modal-active { overflow: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f7f5; color: #111111; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, opacity 0.3s ease; opacity: 0; }
+        .accordion-item.active .accordion-content { max-height: 2000px; opacity: 1; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .accordion-item.active .accordion-icon { transform: rotate(45deg); }
     </style>
 </head>
-<body class="bg-stone-950 text-stone-200 antialiased selection:bg-stone-800 selection:text-amber-400">
+<body class="bg-canvas text-ink antialiased selection:bg-ink selection:text-canvas">
 
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 w-full bg-stone-950/90 backdrop-blur-md z-40 border-b border-stone-800/80">
+    <!-- Minimalist Header -->
+    <nav class="fixed top-0 left-0 w-full bg-canvas/90 backdrop-blur-md z-40 border-b border-line">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-xl font-normal tracking-tight text-stone-100 editorial-title">Shivam Billore</a>
-            <div class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-medium text-stone-400">
-                <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
-                <a href="#what-i-do" class="hover:text-amber-400 transition-colors">What I Do</a>
-                <a href="#selected-work" class="hover:text-amber-400 transition-colors">Selected Work</a>
-                <a href="#articles" class="hover:text-amber-400 transition-colors">Articles</a>
-                <a href="#socials" class="hover:text-amber-400 transition-colors">Socials</a>
-                <a href="#experience" class="hover:text-amber-400 transition-colors">Experience</a>
-                <a href="#tools" class="hover:text-amber-400 transition-colors">Tools</a>
+            <a href="#" class="text-base font-bold tracking-tight uppercase">Shivam Billore</a>
+            <div class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-semibold text-muted">
+                <a href="#about" class="hover:text-ink transition-colors">About</a>
+                <a href="#what-i-do" class="hover:text-ink transition-colors">What I Do</a>
+                <a href="#selected-work" class="hover:text-ink transition-colors">Work</a>
+                <a href="#articles" class="hover:text-ink transition-colors">Writing</a>
+                <a href="#socials" class="hover:text-ink transition-colors">Socials</a>
+                <a href="#experience" class="hover:text-ink transition-colors">Experience</a>
             </div>
-            <a href="#contact" class="hidden md:inline-flex px-5 py-2.5 text-xs uppercase tracking-widest font-semibold border border-stone-700 text-stone-200 hover:border-amber-400 hover:text-amber-400 transition-all">
-                Connect
+            <a href="#contact" class="hidden md:inline-flex text-xs uppercase tracking-widest font-bold underline underline-offset-4 hover:text-muted transition-colors">
+                Contact
             </a>
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-stone-200 focus:outline-none">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-ink focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
-        <!-- Mobile Dropdown Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden bg-stone-900 border-b border-stone-800 px-6 py-6 space-y-4 text-xs uppercase tracking-widest">
-            <a href="#about" class="block text-stone-300 hover:text-amber-400">About</a>
-            <a href="#what-i-do" class="block text-stone-300 hover:text-amber-400">What I Do</a>
-            <a href="#selected-work" class="block text-stone-300 hover:text-amber-400">Selected Work</a>
-            <a href="#articles" class="block text-stone-300 hover:text-amber-400">Articles</a>
-            <a href="#socials" class="block text-stone-300 hover:text-amber-400">Socials</a>
-            <a href="#experience" class="block text-stone-300 hover:text-amber-400">Experience</a>
-            <a href="#tools" class="block text-stone-300 hover:text-amber-400">Tools</a>
-            <a href="#contact" class="block text-amber-400 font-semibold pt-2">Connect</a>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-canvas border-b border-line px-6 py-6 space-y-4 text-xs font-bold uppercase tracking-widest">
+            <a href="#about" class="block">About</a>
+            <a href="#what-i-do" class="block">What I Do</a>
+            <a href="#selected-work" class="block">Work</a>
+            <a href="#articles" class="block">Writing</a>
+            <a href="#socials" class="block">Socials</a>
+            <a href="#experience" class="block">Experience</a>
+            <a href="#contact" class="block underline">Contact</a>
         </div>
     </nav>
 
-    <!-- Section 1: Hero Section -->
-    <section class="min-h-screen pt-32 pb-20 px-6 flex items-center max-w-5xl mx-auto">
+    <!-- Section 1: Hero Section (Cole Schafer Style Statement) -->
+    <section class="min-h-screen pt-36 pb-20 px-6 flex items-center max-w-5xl mx-auto">
         <div class="space-y-8">
-            <div class="inline-block px-3 py-1 bg-stone-900 border border-stone-800 rounded-full text-xs font-mono text-amber-400 uppercase tracking-wider">
-                Writer & Communication Strategist
-            </div>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-normal leading-tight text-stone-100 editorial-title">
-                Hello, I am Shivam
+            <span class="text-xs uppercase font-mono tracking-widest text-muted block">Writer & Communication Strategist</span>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] text-ink">
+                I am a writer and strategist just trying to do great work.
             </h1>
-            <p class="text-lg md:text-2xl text-stone-400 font-light leading-relaxed max-w-3xl">
-                Communication is more than words. It is how ideas travel, communities form, and brands earn trust. I help organizations shape stories, systems, and strategies that people genuinely connect with.
+            <p class="text-lg md:text-2xl text-muted font-light leading-relaxed max-w-3xl pt-2">
+                Communication is more than words. It is how ideas travel, communities form, and brands earn trust.
             </p>
-            <div class="flex flex-wrap gap-4 pt-4">
-                <a href="#selected-work" class="px-6 py-3.5 bg-stone-100 text-stone-950 text-xs font-medium uppercase tracking-widest hover:bg-amber-400 transition-all">
+            <div class="flex flex-wrap gap-6 pt-4 items-center">
+                <a href="#selected-work" class="px-8 py-4 bg-ink text-canvas text-xs font-bold uppercase tracking-widest hover:bg-muted transition-all">
                     See My Work
                 </a>
-                <a href="mailto:writetoshivambillore@gmail.com" class="px-6 py-3.5 border border-stone-700 text-stone-300 text-xs font-medium uppercase tracking-widest hover:border-stone-400 hover:text-stone-100 transition-all">
-                    Send Me an Email
+                <a href="mailto:writetoshivambillore@gmail.com" class="text-xs font-bold uppercase tracking-widest underline underline-offset-8 hover:text-muted transition-colors">
+                    Send Me an Email ↗
                 </a>
-                <a href="Shivam_Billore_Resume.pdf" download class="px-6 py-3.5 border border-amber-500/40 text-amber-400 text-xs font-medium uppercase tracking-widest hover:bg-amber-400 hover:text-stone-950 transition-all">
-                    Download Resume (PDF)
+                <a href="Shivam_Billore_Resume.pdf" download class="text-xs font-mono uppercase tracking-widest text-muted hover:text-ink transition-colors border-b border-muted pb-0.5">
+                    Resume (PDF) ↓
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: About Me (Strictly Professional) -->
-    <section id="about" class="py-24 px-6 bg-stone-900/60 border-y border-stone-800/80">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-            <div class="md:col-span-4">
-                <div class="aspect-[4/5] bg-stone-800 overflow-hidden rounded-sm border border-stone-700/60 shadow-xl max-w-sm mx-auto">
-                    <!-- Shivam's Profile Photo -->
-                    <img src="1000220423_6bf7bfded568810fb28ec1bbe32973e8-9_21_2025, 12_13_22 AM.jpg" alt="Shivam Billore" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500">
+    <!-- Section 2: About Me -->
+    <section id="about" class="py-24 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-5">
+                <div class="aspect-[3/4] bg-stone-300 overflow-hidden shadow-sm">
+                    <img src="1000220423_6bf7bfded568810fb28ec1bbe32973e8-9_21_2025, 12_13_22 AM.jpg" alt="Shivam Billore" class="w-full h-full object-cover grayscale contrast-125">
                 </div>
             </div>
-            <div class="md:col-span-8 space-y-6">
-                <span class="text-xs uppercase tracking-widest text-amber-400 font-mono">About Me</span>
-                <h2 class="text-3xl md:text-4xl text-stone-100 editorial-title leading-snug">
-                    Building stories, systems, and strategies that drive measurable connection.
+            <div class="md:col-span-7 space-y-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-snug">
+                    Building stories, systems, and strategies...
                 </h2>
-                <div class="space-y-4 text-stone-400 leading-relaxed font-light text-base">
+                <div class="space-y-6 text-muted leading-relaxed font-normal text-base md:text-lg">
                     <p>
-                        With over 9 years of experience across travel, IT services, B2B SaaS, non-profits, and international forums, I operate at the intersection of brand strategy, narrative copy, and AI-enabled communication.
+                        With over 9 years of experience across travel, IT services, B2B SaaS, non-profits, and international forums, I operate at the intersection of brand strategy, narrative copy, and AI-enabled communication[cite: 9].
                     </p>
                     <p>
-                        My work focuses on transforming digital presences into high-performing content ecosystems. Whether architecting complete brand voices from scratch, conceptualizing viral campaigns, or translating complex diplomatic and technical frameworks into accessible stories, I ensure design and words complement each other seamlessly.
+                        My work focuses on transforming digital presences into high-performing content ecosystems[cite: 9]. Whether architecting complete brand voices from scratch, conceptualizing viral campaigns, or translating complex diplomatic and technical frameworks into accessible stories, I ensure design and words complement each other seamlessly.
                     </p>
                 </div>
-                <div class="pt-2">
-                    <a href="Shivam_Billore_Resume.pdf" download class="inline-flex items-center text-xs font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300">
-                        View Complete Resume <span class="ml-2">↓</span>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: What I Do (Interactive Category Tap Architecture) -->
-    <section id="what-i-do" class="py-24 px-6 max-w-6xl mx-auto">
-        <div class="space-y-4 mb-12">
-            <span class="text-xs uppercase tracking-widest text-amber-400 font-mono">Core Capabilities</span>
-            <h2 class="text-3xl md:text-5xl text-stone-100 editorial-title">What I Do</h2>
-            <p class="text-stone-400 font-light max-w-2xl">Tap any domain tab below to explore specific services and communication frameworks.</p>
-        </div>
-
-        <!-- Interactive Category Tabs for What I Do -->
-        <div class="flex flex-wrap gap-2 border-b border-stone-800 pb-4 mb-8" id="wid-tabs">
-            <button class="wid-tab-btn active px-4 py-2 text-xs uppercase tracking-widest font-mono text-amber-400 border-b-2 border-amber-400" data-target="wid-all">All Capabilities</button>
-            <button class="wid-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="wid-branding">Branding & Digital</button>
-            <button class="wid-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="wid-editorial">Editorial & Publishing</button>
-            <button class="wid-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="wid-multimedia">Multimedia & Video</button>
-            <button class="wid-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="wid-research">Research & Strategy</button>
-        </div>
-
-        <!-- What I Do Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="wid-card wid-branding p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-stone-700 transition-all">
-                <h3 class="text-lg font-normal text-stone-100 mb-4 editorial-title text-amber-400">Branding & Digital Presence</h3>
-                <ul class="space-y-2 text-xs text-stone-400 font-light leading-relaxed">
-                    <li>• Brand Identity Development & Voice</li>
-                    <li>• Personal Branding & Executive Thought Leadership</li>
-                    <li>• Website Planning & UX Copywriting</li>
-                    <li>• Information Architecture</li>
-                    <li>• Sales Team LinkedIn Profile Positioning</li>
-                </ul>
-            </div>
-            <!-- Card 2 -->
-            <div class="wid-card wid-editorial p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-stone-700 transition-all">
-                <h3 class="text-lg font-normal text-stone-100 mb-4 editorial-title text-amber-400">Editorial & Publishing</h3>
-                <ul class="space-y-2 text-xs text-stone-400 font-light leading-relaxed">
-                    <li>• Editorial Strategy & Supervision</li>
-                    <li>• Ghostwriting & Opinion Pieces</li>
-                    <li>• Policy & Declaration Writing</li>
-                    <li>• Technical B2B Blogging</li>
-                    <li>• Newsletters & Long-Form Features</li>
-                </ul>
-            </div>
-            <!-- Card 3 -->
-            <div class="wid-card wid-multimedia p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-stone-700 transition-all">
-                <h3 class="text-lg font-normal text-stone-100 mb-4 editorial-title text-amber-400">Multimedia & Campaigns</h3>
-                <ul class="space-y-2 text-xs text-stone-400 font-light leading-relaxed">
-                    <li>• Video & Reel Scriptwriting</li>
-                    <li>• Creative Direction & Production Briefs</li>
-                    <li>• Narrative Carousel Storytelling</li>
-                    <li>• UGC Campaign Architecture</li>
-                    <li>• Podcast & Video Scripting</li>
-                </ul>
-            </div>
-            <!-- Card 4 -->
-            <div class="wid-card wid-branding p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-stone-700 transition-all">
-                <h3 class="text-lg font-normal text-stone-100 mb-4 editorial-title text-amber-400">Content & Marketing</h3>
-                <ul class="space-y-2 text-xs text-stone-400 font-light leading-relaxed">
-                    <li>• Content Strategy & Marketing Operations</li>
-                    <li>• Brand Storytelling & Campaign Planning</li>
-                    <li>• On-Page & Off-Page SEO Architecture</li>
-                    <li>• Email Marketing & Conversion Drips</li>
-                    <li>• Meta Ads & Acquisition Strategy</li>
-                </ul>
-            </div>
-            <!-- Card 5 -->
-            <div class="wid-card wid-research p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-stone-700 transition-all">
-                <h3 class="text-lg font-normal text-stone-100 mb-4 editorial-title text-amber-400">Communication Strategy</h3>
-                <ul class="space-y-2 text-xs text-stone-400 font-light leading-relaxed">
-                    <li>• Brand Strategy & Narrative Framing</li>
-                    <li>• Messaging & Positioning Frameworks</li>
-                    <li>• Internal & Stakeholder Communications</li>
-                    <li>• Event & Conference Coverage</li>
-                    <li>• Community Engagement & Workshops</li>
-                </ul>
-            </div>
-            <!-- Card 6 -->
-            <div class="wid-card wid-research p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-stone-700 transition-all">
-                <h3 class="text-lg font-normal text-stone-100 mb-4 editorial-title text-amber-400">Research & Knowledge</h3>
-                <ul class="space-y-2 text-xs text-stone-400 font-light leading-relaxed">
-                    <li>• Qualitative & Ethnographic Research</li>
-                    <li>• Case Studies & Policy Notes</li>
-                    <li>• Curriculum & Training Development</li>
-                    <li>• Literature Reviews & Documentation</li>
-                    <li>• Cultural & Heritage Documentation</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Selected Work (Showcase with Modals & Tabs) -->
-    <section id="selected-work" class="py-24 px-6 bg-stone-900 border-y border-stone-800">
-        <div class="max-w-6xl mx-auto space-y-12">
-            <div class="space-y-4">
-                <span class="text-xs uppercase tracking-widest text-amber-400 font-mono">Featured Portfolio</span>
-                <h2 class="text-3xl md:text-5xl editorial-title text-stone-100">Selected Work</h2>
-                <p class="text-stone-400 font-light max-w-2xl">Tap any category to filter, or tap "View Case Study" to open full project details.</p>
-            </div>
-
-            <!-- Category Filter Tabs -->
-            <div class="flex flex-wrap gap-2 border-b border-stone-800 pb-4" id="project-tabs">
-                <button class="tab-btn active px-4 py-2 text-xs uppercase tracking-widest font-mono text-amber-400 border-b-2 border-amber-400" data-target="all">All Projects</button>
-                <button class="tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="campaigns">Campaigns</button>
-                <button class="tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="websites">Websites Shaped</button>
-                <button class="tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="editorial">Editorial & Forums</button>
-                <button class="tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="email">Email Drips</button>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Project 1: Go Nuts November -->
-                <div class="project-card campaigns p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between" data-category="campaigns">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 uppercase">UGC & Brand Campaign</span>
-                        <h3 class="text-xl font-normal text-stone-100 my-3 editorial-title">Go Nuts November — Bikat Adventures</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">A month-long campaign transforming the slowest trekking month into an identity-first community movement without relying on discounts.</p>
-                    </div>
-                    <button class="modal-open-btn inline-flex items-center text-xs font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300" data-modal="modal-gonuts">
-                        View Case Study <span class="ml-2">→</span>
-                    </button>
-                </div>
-
-                <!-- Project 2: Russian-Indian Youth Forum -->
-                <div class="project-card editorial p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between" data-category="editorial">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 uppercase">International Diplomacy</span>
-                        <h3 class="text-xl font-normal text-stone-100 my-3 editorial-title">II Russian-Indian Youth Forum</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">Authored the official conference declaration, consolidating discussions across multiple thematic tracks into policy-oriented language.</p>
-                    </div>
-                    <button class="modal-open-btn inline-flex items-center text-xs font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300" data-modal="modal-forum">
-                        View Case Study <span class="ml-2">→</span>
-                    </button>
-                </div>
-
-                <!-- Project 3: LynkedUp Pro CRM -->
-                <div class="project-card websites p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between" data-category="websites">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 uppercase">SaaS & CRM Architecture</span>
-                        <h3 class="text-xl font-normal text-stone-100 my-3 editorial-title">LynkedUp Pro</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">Brand strategy, website messaging, Meta ads, and lead funnel communication for a construction CRM platform built for contractors.</p>
-                    </div>
-                    <button class="modal-open-btn inline-flex items-center text-xs font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300" data-modal="modal-lynkedup">
-                        View Case Study <span class="ml-2">→</span>
-                    </button>
-                </div>
-
-                <!-- Project 4: Galaxy Weblinks -->
-                <div class="project-card websites p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between" data-category="websites">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 uppercase">IT Services & Executive Personal Brand</span>
-                        <h3 class="text-xl font-normal text-stone-100 my-3 editorial-title">Galaxy Weblinks</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">Website positioning, copywriting, SEO strategy, 200+ articles, and CEO ghostwriting over 3.5 years across multiple IT sub-brands.</p>
-                    </div>
-                    <button class="modal-open-btn inline-flex items-center text-xs font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300" data-modal="modal-galaxy">
-                        View Case Study <span class="ml-2">→</span>
-                    </button>
-                </div>
-
-                <!-- Project 5: Absolute Comfort Mechanical -->
-                <div class="project-card websites p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between" data-category="websites">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 uppercase">HVAC Services</span>
-                        <h3 class="text-xl font-normal text-stone-100 my-3 editorial-title">Absolute Comfort Mechanical</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">Complete website copy and brand messaging framework simplifying technical services for DFW homeowners and commercial clients.</p>
-                    </div>
-                    <button class="modal-open-btn inline-flex items-center text-xs font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300" data-modal="modal-absolute">
-                        View Case Study <span class="ml-2">→</span>
-                    </button>
-                </div>
-
-                <!-- Project 6: Email Drip Frameworks -->
-                <div class="project-card email p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between" data-category="email">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 uppercase">Funnel Copywriting</span>
-                        <h3 class="text-xl font-normal text-stone-100 my-3 editorial-title">B2B & Founder Drip Campaigns</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">Multi-phase email nurtures, founder onboarding journeys, and checkout recovery sequences designed for high conversion.</p>
-                    </div>
-                    <button class="modal-open-btn inline-flex items-center text-xs font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300" data-modal="modal-emaildrips">
-                        View Case Study <span class="ml-2">→</span>
-                    </button>
-                </div>
-
-            </div>
-
-            <!-- Additional Digital Projects List -->
-            <div class="pt-12 border-t border-stone-800">
-                <h4 class="text-xs font-mono uppercase tracking-widest text-amber-400 mb-6">Additional Digital Projects Shaped</h4>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-light text-stone-300">
-                    <div class="p-4 bg-stone-950 rounded border border-stone-800">
-                        <strong class="block text-stone-100 font-normal editorial-title text-sm">AnandDamani.com</strong> Personal Branding
-                    </div>
-                    <div class="p-4 bg-stone-950 rounded border border-stone-800">
-                        <strong class="block text-stone-100 font-normal editorial-title text-sm">Business Bridge Asia</strong> Market Entry
-                    </div>
-                    <div class="p-4 bg-stone-950 rounded border border-stone-800">
-                        <strong class="block text-stone-100 font-normal editorial-title text-sm">RTCWeb.in</strong> WebRTC & Tech
-                    </div>
-                    <div class="p-4 bg-stone-950 rounded border border-stone-800">
-                        <strong class="block text-stone-100 font-normal editorial-title text-sm">Global Peace Foundation</strong> Editorial Supervisor
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 5: Articles & Essays (Interactive Domain Filter) -->
-    <section id="articles" class="py-24 px-6 max-w-6xl mx-auto">
-        <div class="space-y-4 mb-12">
-            <span class="text-xs uppercase tracking-widest text-amber-400 font-mono">Written Word</span>
-            <h2 class="text-3xl md:text-5xl text-stone-100 editorial-title">Published Articles & Essays</h2>
-            <p class="text-stone-400 font-light max-w-2xl">A curated archive of long-form writing across international relations, high-altitude expedition narratives, brand philosophy, and academic research.</p>
-        </div>
-
-        <!-- Filter Tabs for Articles -->
-        <div class="flex flex-wrap gap-2 border-b border-stone-800 pb-4 mb-8" id="article-tabs">
-            <button class="art-tab-btn active px-4 py-2 text-xs uppercase tracking-widest font-mono text-amber-400 border-b-2 border-amber-400" data-target="art-all">All Writing</button>
-            <button class="art-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="art-geopolitics">Geopolitics & Policy</button>
-            <button class="art-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="art-travel">High-Altitude & Narrative</button>
-            <button class="art-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="art-academic">Academic & Research</button>
-        </div>
-
-        <!-- Articles Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <!-- Article 1: India-Japan Relations -->
-            <a href="https://www.stearthinktank.com/post/india-japan-relations-a-blueprint-for-the-asian-century" target="_blank" class="art-card art-geopolitics p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block group">
-                <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-3">
-                    <span>STEAR Think Tank</span>
-                    <span>Geopolitics & Policy</span>
-                </div>
-                <h3 class="text-xl font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title mb-3">
-                    India–Japan Relations: A Blueprint for the ‘Asian Century’
-                </h3>
-                <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">
-                    Examines how the India-Japan strategic partnership acts as a pivotal force shaping the Indo-Pacific through supply chain resilience, semiconductor technology, and maritime security.
-                </p>
-                <div class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400 flex items-center">
-                    Read Published Article <span class="ml-2">↗</span>
-                </div>
-            </a>
-
-            <!-- Article 2: Winter's Best Kept Secrets -->
-            <a href="https://www.bikatadventures.com/Home/Blog/Winter-adventures-treks-skiing-snow-leopard" target="_blank" class="art-card art-travel p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block group">
-                <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-3">
-                    <span>Bikat Adventures</span>
-                    <span>Expedition Narrative</span>
-                </div>
-                <h3 class="text-xl font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title mb-3">
-                    Winter’s Best Kept Secrets: Snow, Solitude & Serious Altitude
-                </h3>
-                <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">
-                    "This is the side of winter most people aren’t built for." A sharp narrative challenging typical winter travel content, exploring high-altitude grit at 15,000 feet.
-                </p>
-                <div class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400 flex items-center">
-                    Read Published Article <span class="ml-2">↗</span>
-                </div>
-            </a>
-
-            <!-- Article 3: From Shackles to Summits -->
-            <a href="https://www.bikatadventures.com/Home/Blog/india-himalayan-mountaineering-history" target="_blank" class="art-card art-travel p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block group">
-                <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-3">
-                    <span>Bikat Adventures</span>
-                    <span>Cultural History</span>
-                </div>
-                <h3 class="text-xl font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title mb-3">
-                    From Shackles to Summits | India’s Mountaineering Freedom Story
-                </h3>
-                <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">
-                    Tracing Indian mountaineering from pre-1947 porter roles to post-independence sovereignty, highlighting Gurdial Singh's 1951 Trisul ascent and national pride.
-                </p>
-                <div class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400 flex items-center">
-                    Read Published Article <span class="ml-2">↗</span>
-                </div>
-            </a>
-
-            <!-- Article 4: Open Letter from Testosterone -->
-            <a href="https://www.bikatadventures.com/Home/Blog/cold-exposure-testosterone-hack" target="_blank" class="art-card art-travel p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block group">
-                <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-3">
-                    <span>Bikat Adventures</span>
-                    <span>Brand Philosophy</span>
-                </div>
-                <h3 class="text-xl font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title mb-3">
-                    An Open Letter from Testosterone
-                </h3>
-                <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">
-                    A dramatic narrative connecting cold exposure, discipline, and high-altitude trekking with physical resilience and mental vitality.
-                </p>
-                <div class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400 flex items-center">
-                    Read Published Article <span class="ml-2">↗</span>
-                </div>
-            </a>
-
-            <!-- Article 5: Women on the Trail -->
-            <a href="https://www.bikatadventures.com/Home/Blog/Women-on-the-trail-trekking-guide" target="_blank" class="art-card art-travel p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block group">
-                <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-3">
-                    <span>Bikat Adventures</span>
-                    <span>Social Communication</span>
-                </div>
-                <h3 class="text-xl font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title mb-3">
-                    Women on the Trail: Physiology, Periods & Respect in the Mountains
-                </h3>
-                <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">
-                    Addressing physiological realities, hygiene, iron requirements, and supportive leadership needed for inclusive outdoor environments.
-                </p>
-                <div class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400 flex items-center">
-                    Read Published Article <span class="ml-2">↗</span>
-                </div>
-            </a>
-
-            <!-- Article 6: Spiritual Side of Trekking -->
-            <a href="https://www.bikatadventures.com/Home/Blog/Sacred-Treks-in-the-Himalayas" target="_blank" class="art-card art-travel p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block group">
-                <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-3">
-                    <span>Bikat Adventures</span>
-                    <span>Culture & Philosophy</span>
-                </div>
-                <h3 class="text-xl font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title mb-3">
-                    The Spiritual Side of Trekking: Sacred Treks That Heal
-                </h3>
-                <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">
-                    Exploring sacred Himalayan landscapes—Gaumukh Tapovan, Satopanth, Chandrashila—where endurance meets inner reflection.
-                </p>
-                <div class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400 flex items-center">
-                    Read Published Article <span class="ml-2">↗</span>
-                </div>
-            </a>
-
-            <!-- Article 7: Voices of Tradition Thesis -->
-            <a href="https://docs.google.com/document/d/1tet94eMDcyxAqSN85XtNWyWmJLT5d_FC8goicH4ucLQ/edit?tab=t.0" target="_blank" class="art-card art-academic p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block group">
-                <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-3">
-                    <span>Master's Thesis — BHU</span>
-                    <span>Academic Research</span>
-                </div>
-                <h3 class="text-xl font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title mb-3">
-                    Voices of Tradition: Vedic Education System in Contemporary Banaras
-                </h3>
-                <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">
-                    A qualitative, ethnographic study investigating intangible cultural heritage, oral traditions, and community identity in Varanasi.
-                </p>
-                <div class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400 flex items-center">
-                    View Research Document <span class="ml-2">↗</span>
-                </div>
-            </a>
-
-            <!-- Article 8: Substack Publication -->
-            <a href="https://substack.com/@shivambillore" target="_blank" class="art-card art-all p-8 bg-stone-900/60 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block group">
-                <div class="flex justify-between items-center text-xs font-mono text-amber-400 mb-3">
-                    <span>Personal Publication</span>
-                    <span>Substack</span>
-                </div>
-                <h3 class="text-xl font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title mb-3">
-                    Shivam Billore on Substack
-                </h3>
-                <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">
-                    Personal essays, field notes, communication frameworks, and reflective writing on culture, travel, and strategy.
-                </p>
-                <div class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400 flex items-center">
-                    Visit Substack Channel <span class="ml-2">↗</span>
-                </div>
-            </a>
-
-        </div>
-
-        <div class="pt-8 text-center">
-            <a href="https://rtcweb.in/blog/" target="_blank" class="inline-flex items-center text-xs font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300">
-                Explore 50+ Technical WebRTC Blogs at RTCWeb.in <span class="ml-2">↗</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Section 6: Socials By Me (Interactive Video & Carousel Filter) -->
-    <section id="socials" class="py-24 px-6 bg-stone-900 border-y border-stone-800">
-        <div class="max-w-6xl mx-auto space-y-12">
-            <div class="space-y-4">
-                <span class="text-xs uppercase tracking-widest text-amber-400 font-mono">Social Architecture</span>
-                <h2 class="text-3xl md:text-5xl editorial-title text-stone-100">Socials By Me</h2>
-                <p class="text-stone-400 font-light max-w-2xl">End-to-end conceptualized reels, narrative carousels, and viral social campaigns that collectively generated over 20M+ views.</p>
-            </div>
-
-            <!-- Stats Highlight Bar -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-6 bg-stone-950 border border-stone-800 rounded-sm text-center">
-                    <span class="block text-4xl font-normal text-amber-400 editorial-title mb-1">20M+</span>
-                    <span class="text-[10px] uppercase font-mono tracking-widest text-stone-400">Total Views Generated</span>
-                </div>
-                <div class="p-6 bg-stone-950 border border-stone-800 rounded-sm text-center">
-                    <span class="block text-4xl font-normal text-amber-400 editorial-title mb-1">11M+</span>
-                    <span class="text-[10px] uppercase font-mono tracking-widest text-stone-400">Single Viral Reel</span>
-                </div>
-                <div class="p-6 bg-stone-950 border border-stone-800 rounded-sm text-center">
-                    <span class="block text-4xl font-normal text-amber-400 editorial-title mb-1">50+</span>
-                    <span class="text-[10px] uppercase font-mono tracking-widest text-stone-400">Narrative Carousels</span>
-                </div>
-            </div>
-
-            <!-- Filter Tabs for Socials -->
-            <div class="flex flex-wrap gap-2 border-b border-stone-800 pb-4" id="social-tabs">
-                <button class="soc-tab-btn active px-4 py-2 text-xs uppercase tracking-widest font-mono text-amber-400 border-b-2 border-amber-400" data-target="soc-all">All Social Work</button>
-                <button class="soc-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="soc-reels">Reels (11M+ Views)</button>
-                <button class="soc-tab-btn px-4 py-2 text-xs uppercase tracking-widest font-mono text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="soc-carousels">Narrative Carousels</button>
-            </div>
-
-            <!-- Social Items Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Reel 1: Viral Trek Guide -->
-                <a href="https://www.instagram.com/p/DLAY3mRhver/" target="_blank" class="soc-card soc-reels p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div class="flex justify-between text-[10px] font-mono text-amber-400 uppercase mb-2">
-                            <span>Script + Shoot</span>
-                            <span class="bg-amber-400/10 px-2 py-0.5 rounded text-amber-400">11M+ Views</span>
-                        </div>
-                        <h3 class="text-lg font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title my-2">POV: Your Honest Trek Guide</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Viral short-form reel independently conceptualized, scripted, and shot in high-altitude conditions.</p>
-                    </div>
-                    <span class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400">Watch on Instagram ↗</span>
-                </a>
-
-                <!-- Reel 2: Pangarchulla Trek -->
-                <a href="https://www.instagram.com/reels/DR4f66gAaYR/" target="_blank" class="soc-card soc-reels p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div class="flex justify-between text-[10px] font-mono text-amber-400 uppercase mb-2">
-                            <span>Concept + Script</span>
-                            <span>Cinematic Reel</span>
-                        </div>
-                        <h3 class="text-lg font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title my-2">Pangarchulla Trek Voiceover Reel</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Philosophical voiceover paired with high-altitude visuals, exploring physical and mental endurance.</p>
-                    </div>
-                    <span class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400">Watch on Instagram ↗</span>
-                </a>
-
-                <!-- Reel 3: Sarcastic Blank Reel -->
-                <a href="https://www.instagram.com/reel/DRKOrQSgZP8/" target="_blank" class="soc-card soc-reels p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div class="flex justify-between text-[10px] font-mono text-amber-400 uppercase mb-2">
-                            <span>Voiceover + Concept</span>
-                            <span>Sarcastic Reel</span>
-                        </div>
-                        <h3 class="text-lg font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title my-2">Weird Questions Trekkers Ask</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Compiled real sales team query audio into a humorous, highly relatable engagement post.</p>
-                    </div>
-                    <span class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400">Watch on Instagram ↗</span>
-                </a>
-
-                <!-- Carousel 1: Govt Employees -->
-                <a href="https://www.instagram.com/p/DOJIR1rATP_/" target="_blank" class="soc-card soc-carousels p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div class="flex justify-between text-[10px] font-mono text-amber-400 uppercase mb-2">
-                            <span>Narrative Carousel</span>
-                            <span class="bg-amber-400/10 px-2 py-0.5 rounded text-amber-400">500K+ Views</span>
-                        </div>
-                        <h3 class="text-lg font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title my-2">Govt Employees: Office Might Pay You to Trek</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Uncovered a lesser-known government scheme, turning policy research into Bikat's top-performing carousel.</p>
-                    </div>
-                    <span class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400">View on Instagram ↗</span>
-                </a>
-
-                <!-- Carousel 2: Independence Day -->
-                <a href="https://www.instagram.com/p/DNYEK_3BBXB/" target="_blank" class="soc-card soc-carousels p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div class="flex justify-between text-[10px] font-mono text-amber-400 uppercase mb-2">
-                            <span>Narrative Carousel</span>
-                            <span class="bg-amber-400/10 px-2 py-0.5 rounded text-amber-400">100K+ Views</span>
-                        </div>
-                        <h3 class="text-lg font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title my-2">Before 1947, These Mountains Weren't Ours</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Connected mountaineering history with India's independence story, exploring porter labor versus post-1947 exploration.</p>
-                    </div>
-                    <span class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400">View on Instagram ↗</span>
-                </a>
-
-                <!-- Carousel 3: Turning Back at 6300m -->
-                <a href="https://www.instagram.com/p/DKmZSNKBIu9/" target="_blank" class="soc-card soc-carousels p-6 bg-stone-950 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div class="flex justify-between text-[10px] font-mono text-amber-400 uppercase mb-2">
-                            <span>Narrative Carousel</span>
-                            <span>Storytelling</span>
-                        </div>
-                        <h3 class="text-lg font-normal text-stone-100 group-hover:text-amber-400 transition-colors editorial-title my-2">Turning Back 80m Before Summit at 6300m</h3>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-4">Documented a real expedition turnaround, framing safety and decision-making over summit obsession.</p>
-                    </div>
-                    <span class="text-xs font-mono uppercase tracking-widest text-stone-300 group-hover:text-amber-400">View on Instagram ↗</span>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 7: Experience & Credentials (Interactive Toggle) -->
-    <section id="experience" class="py-24 px-6 max-w-5xl mx-auto">
-        <div class="space-y-4 mb-8">
-            <span class="text-xs uppercase tracking-widest text-amber-400 font-mono">Career Architecture</span>
-            <h2 class="text-3xl md:text-5xl text-stone-100 editorial-title">Experience & Credentials</h2>
-        </div>
-
-        <!-- Toggle Button Header -->
-        <div class="flex gap-4 border-b border-stone-800 pb-4 mb-8" id="exp-toggle">
-            <button class="exp-btn active text-xs font-mono uppercase tracking-widest text-amber-400 border-b-2 border-amber-400 pb-2" data-target="exp-history">Work History (9+ Years)</button>
-            <button class="exp-btn text-xs font-mono uppercase tracking-widest text-stone-400 border-b-2 border-transparent pb-2 hover:text-stone-200" data-target="exp-credentials">Education & Credentials</button>
-        </div>
-
-        <!-- Work History Pane -->
-        <div id="exp-history" class="exp-pane space-y-10">
-            <div class="border-l-2 border-stone-800 pl-6 space-y-2">
-                <div class="flex flex-col md:flex-row md:items-center justify-between text-stone-100">
-                    <h3 class="text-xl font-normal editorial-title text-amber-400">Bikat Adventures — Content Manager</h3>
-                    <span class="text-xs font-mono text-stone-400">May 2025 – March 2026</span>
-                </div>
-                <p class="text-xs text-stone-400 font-light leading-relaxed">
-                    Scaled Instagram audience by 25% (48K to 60K), generated 20M+ organic views, launched GoNutsNovember UGC campaign, overhauled SEO architecture with a 500+ master keyword list, and authored brand newsletters.
-                </p>
-            </div>
-
-            <div class="border-l-2 border-stone-800 pl-6 space-y-2">
-                <div class="flex flex-col md:flex-row md:items-center justify-between text-stone-100">
-                    <h3 class="text-xl font-normal editorial-title text-amber-400">Freelance Brand & Content Strategist</h3>
-                    <span class="text-xs font-mono text-stone-400">April 2022 – Present</span>
-                </div>
-                <p class="text-xs text-stone-400 font-light leading-relaxed">
-                    Architected digital identities from zero for 5 brands (LynkedUp Pro, Absolute Comfort, AchievAR, Insignia Consultancy, Aaidea). Delivered website copy, positioning frameworks, and social roadmaps.
-                </p>
-            </div>
-
-            <div class="border-l-2 border-stone-800 pl-6 space-y-2">
-                <div class="flex flex-col md:flex-row md:items-center justify-between text-stone-100">
-                    <h3 class="text-xl font-normal editorial-title text-amber-400">Galaxy Weblinks Inc. — Content Marketing Lead</h3>
-                    <span class="text-xs font-mono text-stone-400">May 2018 – March 2022</span>
-                </div>
-                <p class="text-xs text-stone-400 font-light leading-relaxed">
-                    Authored 150–200 long-form articles, ghostwrote 50+ CEO thought leadership pieces, built 20+ sales LinkedIn profiles, and led SEO strategy for B2B tech verticals.
-                </p>
-            </div>
-
-            <div class="border-l-2 border-stone-800 pl-6 space-y-2">
-                <div class="flex flex-col md:flex-row md:items-center justify-between text-stone-100">
-                    <h3 class="text-xl font-normal editorial-title text-amber-400">India Infotech — Content Writer & Editor</h3>
-                    <span class="text-xs font-mono text-stone-400">Feb 2017 – May 2018</span>
-                </div>
-                <p class="text-xs text-stone-400 font-light leading-relaxed">
-                    Delivered 6–7 daily SEO blogs for international clients across 10+ industries; promoted to editor within 12 months for quality control.
-                </p>
-            </div>
-        </div>
-
-        <!-- Credentials Pane (Hidden initially) -->
-        <div id="exp-credentials" class="exp-pane hidden space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-light text-stone-300">
-                <div class="p-6 bg-stone-900 border border-stone-800 rounded">
-                    <h4 class="text-sm font-normal text-amber-400 editorial-title mb-2">Education</h4>
-                    <p class="text-stone-200"><strong>MA in Conflict Management & Development</strong></p>
-                    <p class="text-stone-400 mb-2">Banaras Hindu University (2021 – 2023)</p>
-                    <p class="text-stone-200"><strong>B.Com (Honours) in Commerce</strong></p>
-                    <p class="text-stone-400">Altius Institute, Indore (2013 – 2016)</p>
-                </div>
-                <div class="p-6 bg-stone-900 border border-stone-800 rounded">
-                    <h4 class="text-sm font-normal text-amber-400 editorial-title mb-2">Qualifications & Certifications</h4>
-                    <ul class="space-y-1.5 text-stone-300">
-                        <li>• <strong>UGC NET-JRF Qualified</strong> (Assistant Professor Eligibility)</li>
-                        <li>• Basic Mountaineering Course (Himalayas)</li>
-                        <li>• Basic Skiing Course</li>
-                        <li>• Certificate Course in Yoga</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 8: Systems & Tools -->
-    <section id="tools" class="py-20 px-6 bg-stone-900 border-t border-stone-800">
-        <div class="max-w-6xl mx-auto space-y-8">
+    <!-- Section 3: What I Do (Dropdown Architecture) -->
+    <section id="what-i-do" class="py-24 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-12">
             <div class="space-y-2">
-                <span class="text-xs uppercase tracking-widest text-amber-400 font-mono">Toolkit</span>
-                <h2 class="text-3xl editorial-title text-stone-100">Systems & Tools I Use</h2>
-            </div>
-            <div class="flex flex-wrap gap-3 text-xs font-mono text-stone-300">
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Notion</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Ghost</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Grammarly</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Claude 3.5 Sonnet</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Gemini</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">NotebookLM</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Google Analytics</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Meta Business Suite</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Ahrefs</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">SEMrush</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Yoast SEO</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Canva</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Framer</span>
-                <span class="px-4 py-2 bg-stone-950 border border-stone-800 rounded">Asana</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 9: Contact & Socials -->
-    <section id="contact" class="py-24 px-6 bg-stone-950 text-stone-50 border-t border-stone-800">
-        <div class="max-w-5xl mx-auto space-y-12 text-center">
-            <div class="space-y-4">
-                <span class="text-xs uppercase tracking-widest text-amber-400 font-mono">Get In Touch</span>
-                <h2 class="text-3xl md:text-5xl editorial-title">Let’s Shape Something Meaningful</h2>
-                <p class="text-stone-400 font-light max-w-xl mx-auto text-xs md:text-sm">
-                    Whether you are building a new brand, refining an existing voice, or scaling a content ecosystem, I’m always open to discussing good work.
-                </p>
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Capabilities</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">What I Do</h2>
             </div>
 
-            <!-- Responsive Contact Grid -->
-            <div class="pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-                <a href="mailto:writetoshivambillore@gmail.com" class="p-6 bg-stone-900 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block overflow-hidden">
-                    <span class="text-[10px] text-amber-400 block font-mono mb-2 uppercase">Email</span>
-                    <span class="text-xs font-medium text-stone-200 block break-all leading-snug">writetoshivambillore@gmail.com</span>
-                </a>
-                <a href="https://linkedin.com/in/shivambillore" target="_blank" class="p-6 bg-stone-900 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block overflow-hidden">
-                    <span class="text-[10px] text-amber-400 block font-mono mb-2 uppercase">LinkedIn</span>
-                    <span class="text-xs font-medium text-stone-200 block break-all leading-snug">linkedin.com/in/shivambillore</span>
-                </a>
-                <a href="https://instagram.com/shivyaatra" target="_blank" class="p-6 bg-stone-900 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block overflow-hidden">
-                    <span class="text-[10px] text-amber-400 block font-mono mb-2 uppercase">Instagram</span>
-                    <span class="text-xs font-medium text-stone-200 block break-all leading-snug">@shivyaatra</span>
-                </a>
-                <a href="https://wa.me/918818869199" target="_blank" class="p-6 bg-stone-900 border border-stone-800 rounded-sm hover:border-amber-400/60 transition-all block overflow-hidden">
-                    <span class="text-[10px] text-amber-400 block font-mono mb-2 uppercase">WhatsApp</span>
-                    <span class="text-xs font-medium text-stone-200 block break-all leading-snug">+91 8818869199</span>
-                </a>
-            </div>
-
-            <div class="pt-12 text-xs text-stone-500 font-light border-t border-stone-900">
-                © Shivam Billore. Designed & developed with clean editorial standards.
-            </div>
-        </div>
-    </section>
-
-    <!-- DETAILED MODALS CONTAINER -->
-    
-    <!-- Modal 1: Go Nuts November -->
-    <div id="modal-gonuts" class="modal hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
-            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
-                <div>
-                    <span class="text-xs font-mono text-amber-400 uppercase">Case Study</span>
-                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">Go Nuts November — Bikat Adventures</h3>
+            <div class="divide-y divide-line border-y border-line">
+                <!-- Row 1 -->
+                <div class="accordion-item group cursor-pointer py-6">
+                    <div class="flex justify-between items-center accordion-header">
+                        <h3 class="text-xl md:text-2xl font-bold tracking-tight">01 / Branding & Digital Presence</h3>
+                        <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-2">
+                        <p>• Brand Identity Development & Voice</p>
+                        <p>• Personal Branding & Executive Thought Leadership</p>
+                        <p>• Website Planning & UX Copywriting</p>
+                        <p>• Information Architecture & Content Strategy</p>
+                        <p>• Sales Team LinkedIn Profile Positioning</p>
+                    </div>
                 </div>
-                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
-            </div>
-            <div class="space-y-6 text-xs font-light text-stone-300 leading-relaxed">
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Campaign Philosophy</h4>
-                    <p>Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em> November is traditionally a slow window for the trekking industry before winter sets in. Rather than leading with heavy discounts, the campaign shifted focus from "Buy a trek" to "Become part of the tribe," inviting participants to demonstrate grit through a month-long UGC challenge.</p>
+
+                <!-- Row 2 -->
+                <div class="accordion-item group cursor-pointer py-6">
+                    <div class="flex justify-between items-center accordion-header">
+                        <h3 class="text-xl md:text-2xl font-bold tracking-tight">02 / Editorial & Publishing</h3>
+                        <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-2">
+                        <p>• Editorial Strategy & Supervision</p>
+                        <p>• Ghostwriting & Opinion Pieces</p>
+                        <p>• Policy & Conference Declaration Writing</p>
+                        <p>• Technical B2B Article Writing</p>
+                        <p>• Long-Form Features & Newsletters</p>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Execution & Deliverables</h4>
-                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
-                        <li>Owned end-to-end campaign architecture from naming and brand narrative to mechanics and community language.</li>
-                        <li>Scripted and directed kickoff reels, explainer posts, narrative carousels, and meme assets across 7 weeks.</li>
-                        <li>Structured micro-challenge prompts, daily story reshares, live polls, and weekly leaderboards.</li>
-                        <li>Managed community communication, influencer/creator alumni outreach, and final winner announcements.</li>
-                    </ul>
+
+                <!-- Row 3 -->
+                <div class="accordion-item group cursor-pointer py-6">
+                    <div class="flex justify-between items-center accordion-header">
+                        <h3 class="text-xl md:text-2xl font-bold tracking-tight">03 / Multimedia & Campaigns</h3>
+                        <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-2">
+                        <p>• Short-Form Reel & Video Scriptwriting</p>
+                        <p>• Creative Direction & Visual Briefs</p>
+                        <p>• Narrative Carousel Storytelling</p>
+                        <p>• UGC Campaign Architecture</p>
+                        <p>• Meta Ad Scripts & Direct Response Copy</p>
+                    </div>
                 </div>
-                <div class="bg-stone-950 p-6 rounded border border-stone-800">
-                    <h4 class="text-[10px] font-semibold uppercase tracking-wider text-amber-400 font-mono mb-3">Key Results</h4>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-                        <div><span class="block text-xl font-normal text-stone-100 editorial-title">500K+</span><span class="text-[9px] uppercase text-stone-400">Campaign Views</span></div>
-                        <div><span class="block text-xl font-normal text-stone-100 editorial-title">50+</span><span class="text-[9px] uppercase text-stone-400">UGC Entries</span></div>
-                        <div><span class="block text-xl font-normal text-stone-100 editorial-title">2,000+</span><span class="text-[9px] uppercase text-stone-400">Follower Growth</span></div>
-                        <div><span class="block text-xl font-normal text-stone-100 editorial-title">3</span><span class="text-[9px] uppercase text-stone-400">Ambassadors Signed</span></div>
+
+                <!-- Row 4 -->
+                <div class="accordion-item group cursor-pointer py-6">
+                    <div class="flex justify-between items-center accordion-header">
+                        <h3 class="text-xl md:text-2xl font-bold tracking-tight">04 / Research & Strategy</h3>
+                        <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-2">
+                        <p>• Qualitative & Ethnographic Research</p>
+                        <p>• Case Studies & Policy Concept Notes</p>
+                        <p>• Curriculum & Training Material Development</p>
+                        <p>• Cultural Heritage & Field Documentation</p>
+                        <p>• Internal & Stakeholder Communication</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Modal 2: Russian-Indian Youth Forum -->
-    <div id="modal-forum" class="modal hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
-            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
-                <div>
-                    <span class="text-xs font-mono text-amber-400 uppercase">Diplomatic Editorial</span>
-                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">II Russian-Indian Youth Forum</h3>
-                </div>
-                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+    <!-- Section 4: Selected Work (Expandable Minimalist Drawers) -->
+    <section id="selected-work" class="py-24 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-12">
+            <div class="space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Portfolio</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Selected Work</h2>
+                <p class="text-xs font-mono text-muted uppercase">Tap any project below to expand the complete case study.</p>
             </div>
-            <div class="space-y-6 text-xs font-light text-stone-300 leading-relaxed">
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Role: Declaration Writer & Team Lead</h4>
-                    <p>Invited to serve as the lead Declaration Writer, consolidating multi-session diplomatic discussions across bilateral thematic tracks including science & technology, sustainability, social development, and women’s leadership.</p>
+
+            <div class="divide-y divide-line border-y border-line">
+                
+                <!-- Work 1 -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">UGC Campaign — Bikat Adventures</span>
+                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Go Nuts November</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
+                        <p><strong>Philosophy:</strong> Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em>[cite: 5] November is traditionally a slow window for the trekking industry[cite: 5]. Rather than leading with discounts, the campaign shifted focus to an identity-first UGC challenge[cite: 5].</p>
+                        <p><strong>Execution:</strong> Owned end-to-end campaign architecture from naming and narrative to mechanics, Instagram reels, carousels, and winner announcements[cite: 5].</p>
+                        <div class="pt-2 font-mono text-xs text-ink">
+                            <strong>Metrics:</strong> 500K+ Views · 50+ UGC Entries · 2,000+ Follower Growth · 3 Brand Ambassadors Signed[cite: 5, 9]
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Core Deliverables</h4>
-                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
-                        <li>Consolidated multi-session discussions from moderators and international delegates into policy-oriented, diplomatic language.</li>
-                        <li>Synthesized bilateral recommendations into a formal Declaration document reflecting collective conference outcomes.</li>
-                        <li>Led an editorial team of 3 editors and 10 volunteers to review and refine language across submissions under tight event timelines.</li>
-                    </ul>
+
+                <!-- Work 2 -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">Diplomatic Editorial — Bilateral Forum</span>
+                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">II Russian-Indian Youth Forum Declaration</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
+                        <p><strong>Role: Declaration Writer & Team Lead</strong>[cite: 7]</p>
+                        <p>Consolidated multi-session diplomatic discussions across science & technology, sustainability, social development, and women’s leadership into the official conference declaration document[cite: 7]. Led an editorial team of 3 editors and 10 volunteers[cite: 7].</p>
+                        <div class="pt-2">
+                            <a href="https://docs.google.com/document/d/1pdoV_LfoittQy9FGU8gjWfNfYIoRloD8P2osM7E8K5c/edit?tab=t.0#heading=h.n8ycswiabo17" target="_blank" class="font-mono text-xs text-ink underline">Read Official Declaration Document ↗</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="pt-2">
-                    <a href="https://docs.google.com/document/d/1pdoV_LfoittQy9FGU8gjWfNfYIoRloD8P2osM7E8K5c/edit?tab=t.0#heading=h.n8ycswiabo17" target="_blank" class="text-xs font-mono text-amber-400 underline">Read Official Declaration Document ↗</a>
+
+                <!-- Work 3 -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">SaaS CRM — Brand Architecture</span>
+                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">LynkedUp Pro</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
+                        <p><strong>Positioning:</strong> <em>"The construction CRM that does the paperwork."</em>[cite: 6] Translated complex AI estimation capabilities into straightforward, benefit-led communication for roofing contractors[cite: 6].</p>
+                        <p><strong>Deliverables:</strong> Website copy, landing page strategy, Meta ads strategy, and multi-stage email drip campaigns (Founder Journey, Demo Drip, Trial Onboarding)[cite: 1, 6].</p>
+                    </div>
+                </div>
+
+                <!-- Work 4 -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">IT Services & Thought Leadership</span>
+                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Galaxy Weblinks</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
+                        <p>Over 3.5 years, authored 150–200 long-form articles, ghostwrote 50+ thought leadership pieces for executive personal branding, built 20+ sales team LinkedIn profiles, and led SEO content strategy[cite: 6, 9].</p>
+                    </div>
+                </div>
+
+                <!-- Work 5 -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">HVAC Brand Messaging</span>
+                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Absolute Comfort Mechanical</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
+                        <p>Led digital messaging framework from scratch for a Dallas-Fort Worth HVAC company[cite: 6]. Delivered complete website copy, local SEO content strategy, and founder brand narrative[cite: 6].</p>
+                    </div>
+                </div>
+
+                <!-- Work 6 -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">B2B Conversion Funnels</span>
+                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Email Drip Campaign Frameworks</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
+                        <p>Architected comprehensive B2B email nurtures tailored across customer intent stages: Founder Member Journey, Demo Drip, Trial-to-Onboarding, and Segmented Cold Outreach Sequences[cite: 1].</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Additional Websites List -->
+            <div class="pt-6">
+                <span class="text-xs font-mono uppercase text-muted block mb-4">Additional Platforms Shaped:</span>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono">
+                    <div class="p-3 border border-line">AnandDamani.com[cite: 6]</div>
+                    <div class="p-3 border border-line">Business Bridge Asia[cite: 6]</div>
+                    <div class="p-3 border border-line">RTCWeb.in[cite: 6]</div>
+                    <div class="p-3 border border-line">Global Peace Foundation[cite: 7, 9]</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Modal 3: LynkedUp Pro CRM -->
-    <div id="modal-lynkedup" class="modal hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
-            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
-                <div>
-                    <span class="text-xs font-mono text-amber-400 uppercase">SaaS & CRM</span>
-                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">LynkedUp Pro — Brand Architecture</h3>
-                </div>
-                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+    <!-- Section 5: Articles & Essays (Minimalist Link List) -->
+    <section id="articles" class="py-24 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-12">
+            <div class="space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Essays & Essays</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Published Writing</h2>
             </div>
-            <div class="space-y-6 text-xs font-light text-stone-300 leading-relaxed">
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Positioning & Strategy</h4>
-                    <p>LynkedUp Pro is a SaaS platform built for roofing contractors and construction teams. My role focused on translating complex AI estimation and CRM capabilities into straightforward, benefit-led communication centered around one core truth: <em>"The construction CRM that does the paperwork."</em></p>
+
+            <div class="divide-y divide-line border-y border-line">
+                
+                <!-- Article 1 -->
+                <a href="https://www.stearthinktank.com/post/india-japan-relations-a-blueprint-for-the-asian-century" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                    <div>
+                        <span class="text-xs font-mono text-muted uppercase block">STEAR Think Tank · Geopolitics</span>
+                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">India–Japan Relations: A Blueprint for the ‘Asian Century’</h3>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                </a>
+
+                <!-- Article 2 -->
+                <a href="https://www.bikatadventures.com/Home/Blog/Winter-adventures-treks-skiing-snow-leopard" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                    <div>
+                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Expedition Narrative</span>
+                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">Winter’s Best Kept Secrets: Snow, Solitude & Serious Altitude</h3>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                </a>
+
+                <!-- Article 3 -->
+                <a href="https://www.bikatadventures.com/Home/Blog/india-himalayan-mountaineering-history" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                    <div>
+                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Cultural History</span>
+                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">From Shackles to Summits | India’s Mountaineering Freedom Story</h3>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                </a>
+
+                <!-- Article 4 -->
+                <a href="https://www.bikatadventures.com/Home/Blog/cold-exposure-testosterone-hack" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                    <div>
+                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Brand Philosophy</span>
+                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">An Open Letter from Testosterone</h3>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                </a>
+
+                <!-- Article 5 -->
+                <a href="https://www.bikatadventures.com/Home/Blog/Women-on-the-trail-trekking-guide" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                    <div>
+                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Social Communication</span>
+                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">Women on the Trail: Physiology, Periods & Respect in the Mountains</h3>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                </a>
+
+                <!-- Article 6 -->
+                <a href="https://www.bikatadventures.com/Home/Blog/Sacred-Treks-in-the-Himalayas" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                    <div>
+                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Culture & Philosophy</span>
+                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">The Spiritual Side of Trekking: Sacred Treks That Heal</h3>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                </a>
+
+                <!-- Article 7 -->
+                <a href="https://docs.google.com/document/d/1tet94eMDcyxAqSN85XtNWyWmJLT5d_FC8goicH4ucLQ/edit?tab=t.0" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                    <div>
+                        <span class="text-xs font-mono text-muted uppercase block">Master's Thesis · BHU</span>
+                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">Voices of Tradition: Vedic Education System in Contemporary Banaras</h3>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-ink">View Research ↗</span>
+                </a>
+
+                <!-- Article 8 -->
+                <a href="https://substack.com/@shivambillore" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                    <div>
+                        <span class="text-xs font-mono text-muted uppercase block">Substack Publication</span>
+                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">Shivam Billore on Substack</h3>
+                    </div>
+                    <span class="text-xs font-mono uppercase text-ink">Visit Substack ↗</span>
+                </a>
+
+            </div>
+
+            <div class="pt-4">
+                <a href="https://rtcweb.in/blog/" target="_blank" class="text-xs font-mono uppercase text-muted hover:text-ink underline">
+                    Explore 50+ B2B Technical WebRTC Blogs at RTCWeb.in ↗
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Socials By Me (Drawer Format) -->
+    <section id="socials" class="py-24 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-12">
+            <div class="space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Social Architecture</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Socials By Me</h2>
+                <p class="text-xs font-mono text-muted uppercase">20M+ Organic Views · 11M+ Single Reel · 50+ Carousels[cite: 9]</p>
+            </div>
+
+            <div class="divide-y divide-line border-y border-line">
+                
+                <!-- Reel Group -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex justify-between items-center accordion-header">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block">Scripted & Shot</span>
+                            <h3 class="text-2xl font-bold tracking-tight">Viral Reels & Short Form (11M+ Views)</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Links +</span>
+                    </div>
+                    <div class="accordion-content space-y-4">
+                        <div class="space-y-3 font-mono text-xs">
+                            <a href="https://www.instagram.com/p/DLAY3mRhver/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>POV: Your Honest Trek Guide (11M+ Views)</strong> — Scripted, shot, and directed independently ↗
+                            </a>
+                            <a href="https://www.instagram.com/reels/DR4f66gAaYR/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Pangarchulla Trek Cinematic Voiceover Reel</strong> — Philosophical script ↗
+                            </a>
+                            <a href="https://www.instagram.com/reel/DRKOrQSgZP8/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Weird Questions Trekkers Ask Sales Teams</strong> — Sarcastic audio concept ↗
+                            </a>
+                            <a href="https://www.instagram.com/reel/DQozEqxgbMG/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>GoNutsNovember Explainer Reel</strong> — UGC Campaign Launch ↗
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Key Accomplishments</h4>
-                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
-                        <li>Developed full website copywriting, messaging hierarchy, and landing page layouts.</li>
-                        <li>Architected Meta advertising campaigns, ad scripting, and customer acquisition messaging.</li>
-                        <li>Planned lead journey maps and authored multi-stage email drip campaigns for Founder Members, Demo leads, and Trial users.</li>
-                    </ul>
+
+                <!-- Carousel Group -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex justify-between items-center accordion-header">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block">Brand Storytelling</span>
+                            <h3 class="text-2xl font-bold tracking-tight">Narrative Carousels (50+ Concepts)</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Links +</span>
+                    </div>
+                    <div class="accordion-content space-y-4">
+                        <div class="space-y-3 font-mono text-xs">
+                            <a href="https://www.instagram.com/p/DOJIR1rATP_/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Govt Employees: Office Might Pay You to Trek (500K+ Views)</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DNYEK_3BBXB/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Before 1947, These Mountains Weren't Ours (100K+ Views)</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DKmZSNKBIu9/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Turning Back 80m Before Summit at 6300m</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DPoWUcLgkqN/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Diwali Wishlist: Trekker's Edition</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DK9jQMUBb3a/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Your First Will Always Be Bad</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DNx91H_QiG3/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Climbing a Mountain is a Journey Inward</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DLkhhSFhX4V/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Not All Summits Are Physical; Some Are Spiritual</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DNTB-TjBjZK/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>The Mountain We Are Not Allowed to Climb</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DUQHLR5gU6S/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Union Budget's Impact on Trekking Industry</strong> ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Experience & Credentials -->
+    <section id="experience" class="py-24 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-12">
+            <div class="space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">History</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Work Experience</h2>
+            </div>
+
+            <div class="divide-y divide-line border-y border-line">
+                
+                <div class="py-8 space-y-2">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <h3 class="text-xl font-bold">Bikat Adventures — Content Manager</h3>
+                        <span class="text-xs font-mono text-muted">May 2025 – March 2026</span>
+                    </div>
+                    <p class="text-sm text-muted font-normal">
+                        Scaled audience by 25% (48K to 60K)[cite: 9], generated 20M+ organic views[cite: 9], launched GoNutsNovember UGC campaign[cite: 5, 9], overhauled SEO architecture with 500+ master keywords[cite: 9], and authored newsletters[cite: 9].
+                    </p>
+                </div>
+
+                <div class="py-8 space-y-2">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <h3 class="text-xl font-bold">Freelance Brand & Content Strategist</h3>
+                        <span class="text-xs font-mono text-muted">April 2022 – Present</span>
+                    </div>
+                    <p class="text-sm text-muted font-normal">
+                        Architected digital identities from zero for 5 brands (LynkedUp Pro, Absolute Comfort, AchievAR, Insignia Consultancy, Aaidea)[cite: 9]. Delivered website copy, positioning frameworks, and social roadmaps[cite: 9].
+                    </p>
+                </div>
+
+                <div class="py-8 space-y-2">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <h3 class="text-xl font-bold">Galaxy Weblinks Inc. — Content Marketing Lead</h3>
+                        <span class="text-xs font-mono text-muted">May 2018 – March 2022</span>
+                    </div>
+                    <p class="text-sm text-muted font-normal">
+                        Authored 150–200 long-form articles[cite: 9], ghostwrote 50+ CEO thought leadership pieces[cite: 9], built 20+ sales LinkedIn profiles[cite: 9], and led SEO strategy for B2B tech verticals[cite: 9].
+                    </p>
+                </div>
+
+                <div class="py-8 space-y-2">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <h3 class="text-xl font-bold">India Infotech — Content Writer & Editor</h3>
+                        <span class="text-xs font-mono text-muted">Feb 2017 – May 2018</span>
+                    </div>
+                    <p class="text-sm text-muted font-normal">
+                        Delivered 6–7 daily SEO blogs for international clients across 10+ industries[cite: 9]; promoted to editor within 12 months[cite: 9].
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Credentials -->
+            <div class="pt-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-mono">
+                <div class="p-6 border border-line">
+                    <strong class="block text-sm font-bold uppercase mb-2">Education</strong>
+                    <p>MA in Conflict Management & Development — Banaras Hindu University[cite: 9]</p>
+                    <p>B.Com (Honours) — Altius Institute, Indore[cite: 9]</p>
+                </div>
+                <div class="p-6 border border-line">
+                    <strong class="block text-sm font-bold uppercase mb-2">Qualifications</strong>
+                    <p>• UGC NET-JRF Qualified (Assistant Professor)[cite: 9]</p>
+                    <p>• Basic Mountaineering & Skiing Courses[cite: 9]</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Modal 4: Galaxy Weblinks -->
-    <div id="modal-galaxy" class="modal hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
-            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
-                <div>
-                    <span class="text-xs font-mono text-amber-400 uppercase">IT Services</span>
-                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">Galaxy Weblinks — Content Marketing Lead</h3>
-                </div>
-                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
-            </div>
-            <div class="space-y-6 text-xs font-light text-stone-300 leading-relaxed">
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">3.5 Year Tenure Overview</h4>
-                    <p>Over three and a half years, I led digital communication, website copywriting, and content marketing across multiple sub-brands within Galaxy Weblinks, balancing technical accuracy with clear brand storytelling.</p>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Core Deliverables</h4>
-                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
-                        <li>Authored 150–200 long-form articles covering WebRTC, cloud infrastructure, UI/UX, e-commerce, and digital transformation.</li>
-                        <li>Ghostwrote 50+ thought leadership articles for executive personal branding on LinkedIn and industry portals.</li>
-                        <li>Built 20+ sales team LinkedIn profiles from scratch, positioning representatives effectively for outbound credibility.</li>
-                        <li>Managed SEO strategy, keyword research, and multi-channel social media platforms.</li>
-                    </ul>
-                </div>
+    <!-- Section 8: Tools -->
+    <section id="tools" class="py-16 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-6">
+            <span class="text-xs font-mono uppercase text-muted">Toolkit</span>
+            <div class="flex flex-wrap gap-3 text-xs font-mono">
+                <span class="p-2 border border-line">Notion</span>
+                <span class="p-2 border border-line">Ghost</span>
+                <span class="p-2 border border-line">Claude 3.5</span>
+                <span class="p-2 border border-line">Gemini</span>
+                <span class="p-2 border border-line">NotebookLM</span>
+                <span class="p-2 border border-line">Ahrefs</span>
+                <span class="p-2 border border-line">SEMrush</span>
+                <span class="p-2 border border-line">Yoast SEO</span>
+                <span class="p-2 border border-line">Canva</span>
+                <span class="p-2 border border-line">Framer</span>
+                <span class="p-2 border border-line">Meta Suite</span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Modal 5: Absolute Comfort -->
-    <div id="modal-absolute" class="modal hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
-            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
-                <div>
-                    <span class="text-xs font-mono text-amber-400 uppercase">HVAC Brand Positioning</span>
-                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">Absolute Comfort Mechanical</h3>
-                </div>
-                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+    <!-- Section 9: Contact -->
+    <section id="contact" class="py-24 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-12">
+            <div class="space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Contact</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Let’s Connect</h2>
             </div>
-            <div class="space-y-6 text-xs font-light text-stone-300 leading-relaxed">
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Brand Strategy & Website Copy</h4>
-                    <p>Absolute Comfort Mechanical is a Dallas-Fort Worth HVAC company. I led the brand's digital messaging framework from the ground up, turning technical furnace/AC repair services into clear, trustworthy communication that builds local credibility.</p>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Deliverables</h4>
-                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
-                        <li>Complete website copywriting across homepage, service pages, and commercial HVAC pages.</li>
-                        <li>Local SEO content architecture targeting Dallas-Fort Worth service keywords.</li>
-                        <li>Brand story, founder narrative, and social media content strategy.</li>
-                    </ul>
-                </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs font-mono">
+                <a href="mailto:writetoshivambillore@gmail.com" class="p-6 border border-line hover:border-ink transition-colors block">
+                    <span class="text-muted block mb-2">EMAIL</span>
+                    <span class="font-bold break-all">writetoshivambillore@gmail.com</span>
+                </a>
+                <a href="https://linkedin.com/in/shivambillore" target="_blank" class="p-6 border border-line hover:border-ink transition-colors block">
+                    <span class="text-muted block mb-2">LINKEDIN</span>
+                    <span class="font-bold break-all">linkedin.com/in/shivambillore</span>
+                </a>
+                <a href="https://instagram.com/shivyaatra" target="_blank" class="p-6 border border-line hover:border-ink transition-colors block">
+                    <span class="text-muted block mb-2">INSTAGRAM</span>
+                    <span class="font-bold break-all">@shivyaatra</span>
+                </a>
+                <a href="https://wa.me/918818869199" target="_blank" class="p-6 border border-line hover:border-ink transition-colors block">
+                    <span class="text-muted block mb-2">WHATSAPP</span>
+                    <span class="font-bold break-all">+91 8818869199</span>
+                </a>
+            </div>
+
+            <div class="pt-12 text-xs font-mono text-muted border-t border-line">
+                © Shivam Billore. Minimalist Editorial Design.
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Modal 6: Email Drips -->
-    <div id="modal-emaildrips" class="modal hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
-            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
-                <div>
-                    <span class="text-xs font-mono text-amber-400 uppercase">Funnel Architecture</span>
-                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">B2B & Founder Drip Campaigns</h3>
-                </div>
-                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
-            </div>
-            <div class="space-y-6 text-xs font-light text-stone-300 leading-relaxed">
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Multi-Tiered Conversion Sequences</h4>
-                    <p>Designed and authored comprehensive email nurtures tailored across different customer intent stages, removing fluff and focusing on objection-handling and clear value.</p>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono mb-2">Sequences Built</h4>
-                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
-                        <li><strong>Founder Member Journey:</strong> Pre-registration and account activation nurtures.</li>
-                        <li><strong>Founder Checkout Recovery:</strong> Objection-handling sequence for abandoned checkout intent.</li>
-                        <li><strong>Demo Drip:</strong> Pre-call prep and post-demo nurture branching for attendees and no-shows.</li>
-                        <li><strong>Trial-to-Onboarding:</strong> Step-by-step feature activation guiding contractors to their first win.</li>
-                        <li><strong>Cold Outreach Sequences:</strong> Target segment messaging for Business Owners, Operations Managers, and Sales Leaders.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript Interactivity Engine -->
+    <!-- JavaScript Accordion Engine -->
     <script>
-        // Mobile Navigation Toggle
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Helper function for Tab Filtering
-        function setupTabFilter(tabClass, cardClass, targetAttr) {
-            const tabs = document.querySelectorAll('.' + tabClass);
-            const cards = document.querySelectorAll('.' + cardClass);
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => {
-                        t.classList.remove('active', 'text-amber-400', 'border-amber-400');
-                        t.classList.add('text-stone-400', 'border-transparent');
-                    });
-                    tab.classList.add('active', 'text-amber-400', 'border-amber-400');
-                    tab.classList.remove('text-stone-400', 'border-transparent');
-
-                    const target = tab.getAttribute(targetAttr);
-                    cards.forEach(card => {
-                        if (target.endsWith('all') || card.classList.contains(target)) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
+        // Universal Accordion Engine
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all active drawers within the same parent section
+                const parentSection = item.closest('section');
+                parentSection.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
                 });
-            });
-        }
 
-        // Initialize Filters Across All Sections
-        setupTabFilter('wid-tab-btn', 'wid-card', 'data-target');
-        setupTabFilter('tab-btn', 'project-card', 'data-target');
-        setupTabFilter('art-tab-btn', 'art-card', 'data-target');
-        setupTabFilter('soc-tab-btn', 'soc-card', 'data-target');
-
-        // Experience & Credentials Toggle
-        const expBtns = document.querySelectorAll('.exp-btn');
-        const expPanes = document.querySelectorAll('.exp-pane');
-
-        expBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                expBtns.forEach(b => {
-                    b.classList.remove('active', 'text-amber-400', 'border-amber-400');
-                    b.classList.add('text-stone-400', 'border-transparent');
-                });
-                btn.classList.add('active', 'text-amber-400', 'border-amber-400');
-                btn.classList.remove('text-stone-400', 'border-transparent');
-
-                const target = btn.getAttribute('data-target');
-                expPanes.forEach(pane => {
-                    if (pane.id === target) {
-                        pane.classList.remove('hidden');
-                    } else {
-                        pane.classList.add('hidden');
-                    }
-                });
-            });
-        });
-
-        // Modal Open / Close Handler
-        const modalOpenBtns = document.querySelectorAll('.modal-open-btn');
-        const modalCloseBtns = document.querySelectorAll('.modal-close');
-        const modals = document.querySelectorAll('.modal');
-
-        modalOpenBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const modalId = btn.getAttribute('data-modal');
-                document.getElementById(modalId).classList.remove('hidden');
-                document.body.classList.add('modal-active');
-            });
-        });
-
-        modalCloseBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                btn.closest('.modal').classList.add('hidden');
-                document.body.classList.remove('modal-active');
-            });
-        });
-
-        modals.forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                    document.body.classList.remove('modal-active');
+                // Toggle target drawer
+                if (!isActive) {
+                    item.classList.add('active');
                 }
             });
         });
