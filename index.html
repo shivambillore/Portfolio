@@ -24,7 +24,6 @@
             }
         }
     </script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -37,56 +36,45 @@
 </head>
 <body class="bg-canvas text-ink antialiased selection:bg-ink selection:text-canvas">
 
-    <!-- Minimalist Header -->
+    <!-- Header: Minimalist Name + Contact Modal Dropdown -->
     <nav class="fixed top-0 left-0 w-full bg-canvas/90 backdrop-blur-md z-40 border-b border-line">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="text-base font-bold tracking-tight uppercase">Shivam Billore</a>
-            <div class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-semibold text-muted">
-                <a href="#about" class="hover:text-ink transition-colors">About</a>
-                <a href="#what-i-do" class="hover:text-ink transition-colors">What I Do</a>
-                <a href="#selected-work" class="hover:text-ink transition-colors">Work</a>
-                <a href="#articles" class="hover:text-ink transition-colors">Writing</a>
-                <a href="#socials" class="hover:text-ink transition-colors">Socials</a>
-                <a href="#experience" class="hover:text-ink transition-colors">Experience</a>
+            
+            <!-- Contact Dropdown Trigger -->
+            <div class="relative">
+                <button id="contact-menu-btn" class="text-xs uppercase tracking-widest font-bold border-b border-ink pb-0.5 hover:text-muted transition-colors">
+                    Contact ↵
+                </button>
+                
+                <!-- Contact Dropdown Menu -->
+                <div id="contact-menu" class="hidden absolute right-0 mt-3 w-64 bg-canvas border border-line p-6 shadow-xl space-y-4 text-xs font-mono z-50">
+                    <span class="text-muted block text-[10px] uppercase font-bold border-b border-line pb-2">Get in Touch</span>
+                    <a href="mailto:writetoshivambillore@gmail.com" class="block hover:underline break-all">writetoshivambillore@gmail.com</a>
+                    <a href="https://linkedin.com/in/shivambillore" target="_blank" class="block hover:underline">LinkedIn ↗</a>
+                    <a href="https://instagram.com/shivyaatra" target="_blank" class="block hover:underline">Instagram ↗</a>
+                    <a href="https://wa.me/918818869199" target="_blank" class="block hover:underline">WhatsApp ↗</a>
+                </div>
             </div>
-            <a href="#contact" class="hidden md:inline-flex text-xs uppercase tracking-widest font-bold underline underline-offset-4 hover:text-muted transition-colors">
-                Contact
-            </a>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-ink focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-canvas border-b border-line px-6 py-6 space-y-4 text-xs font-bold uppercase tracking-widest">
-            <a href="#about" class="block">About</a>
-            <a href="#what-i-do" class="block">What I Do</a>
-            <a href="#selected-work" class="block">Work</a>
-            <a href="#articles" class="block">Writing</a>
-            <a href="#socials" class="block">Socials</a>
-            <a href="#experience" class="block">Experience</a>
-            <a href="#contact" class="block underline">Contact</a>
         </div>
     </nav>
 
-    <!-- Section 1: Hero Section (Cole Schafer Style Statement) -->
-    <section class="min-h-screen pt-36 pb-20 px-6 flex items-center max-w-5xl mx-auto">
+    <!-- Section 1: Hero Section -->
+    <section class="min-h-[85vh] pt-36 pb-16 px-6 flex items-center max-w-5xl mx-auto">
         <div class="space-y-8">
             <span class="text-xs uppercase font-mono tracking-widest text-muted block">Writer & Communication Strategist</span>
-            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] text-ink">
-                I am a writer and strategist just trying to do great work.
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-ink">
+                I am a writer and strategist trying to do great work.
             </h1>
-            <p class="text-lg md:text-2xl text-muted font-light leading-relaxed max-w-3xl pt-2">
+            <p class="text-base md:text-xl text-muted font-light leading-relaxed max-w-2xl">
                 Communication is more than words. It is how ideas travel, communities form, and brands earn trust.
             </p>
-            <div class="flex flex-wrap gap-6 pt-4 items-center">
+            <div class="flex flex-wrap gap-6 pt-2 items-center">
                 <a href="#selected-work" class="px-8 py-4 bg-ink text-canvas text-xs font-bold uppercase tracking-widest hover:bg-muted transition-all">
                     See My Work
                 </a>
-                <a href="mailto:writetoshivambillore@gmail.com" class="text-xs font-bold uppercase tracking-widest underline underline-offset-8 hover:text-muted transition-colors">
-                    Send Me an Email ↗
+                <a href="photos.html" class="px-8 py-4 border border-ink text-ink text-xs font-bold uppercase tracking-widest hover:bg-ink hover:text-canvas transition-all">
+                    Visual Notes ↗
                 </a>
                 <a href="Shivam_Billore_Resume.pdf" download class="text-xs font-mono uppercase tracking-widest text-muted hover:text-ink transition-colors border-b border-muted pb-0.5">
                     Resume (PDF) ↓
@@ -96,18 +84,18 @@
     </section>
 
     <!-- Section 2: About Me -->
-    <section id="about" class="py-24 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-            <div class="md:col-span-5">
-                <div class="aspect-[3/4] bg-stone-300 overflow-hidden shadow-sm">
-                    <img src="1000220423_6bf7bfded568810fb28ec1bbe32973e8-9_21_2025, 12_13_22 AM.jpg" alt="Shivam Billore" class="w-full h-full object-cover grayscale contrast-125">
+    <section id="about" class="py-20 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+            <div class="md:col-span-4">
+                <div class="w-48 h-48 md:w-56 md:h-56 bg-stone-300 rounded-full overflow-hidden shadow-sm border border-line mx-auto md:mx-0">
+                    <img src="profile.jpeg" alt="Shivam Billore" class="w-full h-full object-cover grayscale contrast-125">
                 </div>
             </div>
-            <div class="md:col-span-7 space-y-8">
-                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-snug">
+            <div class="md:col-span-8 space-y-6">
+                <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight leading-snug">
                     Building stories, systems, and strategies...
                 </h2>
-                <div class="space-y-6 text-muted leading-relaxed font-normal text-base md:text-lg">
+                <div class="space-y-4 text-muted leading-relaxed font-normal text-sm md:text-base">
                     <p>
                         With over 9 years of experience across travel, IT services, B2B SaaS, non-profits, and international forums, I operate at the intersection of brand strategy, narrative copy, and AI-enabled communication[cite: 9].
                     </p>
@@ -119,520 +107,279 @@
         </div>
     </section>
 
-    <!-- Section 3: What I Do (Dropdown Architecture) -->
-    <section id="what-i-do" class="py-24 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto space-y-12">
+    <!-- Section 3: Journeys & Field Notes (New Travel Section) -->
+    <section id="journeys" class="py-20 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-10">
+            <div class="space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Field Notes</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">The Road & The Trail</h2>
+                <p class="text-sm text-muted max-w-2xl">The way I write and think has been shaped as much by the road as by any office[cite: 8].</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-mono">
+                <div class="p-6 border border-line space-y-3">
+                    <span class="text-muted block font-bold uppercase">Narmada Parikrama</span>
+                    <h3 class="text-base font-bold text-ink">3,000 KM On Foot</h3>
+                    <p class="text-muted font-sans text-xs leading-relaxed">
+                        Walked over 3,000 kilometers around the Narmada River across 115 days, carrying everything on my back and depending on the kindness of strangers[cite: 8]. Taught me patience, endurance, and quiet observation[cite: 8].
+                    </p>
+                </div>
+                <div class="p-6 border border-line space-y-3">
+                    <span class="text-muted block font-bold uppercase">Mountaineering & Skiing</span>
+                    <h3 class="text-base font-bold text-ink">High-Altitude Discipline</h3>
+                    <p class="text-muted font-sans text-xs leading-relaxed">
+                        Completed formal Basic Mountaineering and Basic Skiing courses in the Himalayas[cite: 8, 9]. High-altitude conditions reframed how I approach risk, resilience, and decision-making under pressure[cite: 8].
+                    </p>
+                </div>
+                <div class="p-6 border border-line space-y-3">
+                    <span class="text-muted block font-bold uppercase">Expeditions & Culture</span>
+                    <h3 class="text-base font-bold text-ink">Himalayan Documentation</h3>
+                    <p class="text-muted font-sans text-xs leading-relaxed">
+                        Spent years documenting mountain communities, remote villages, and high-altitude expeditions[cite: 8, 9]. Bridging ethnographic observation with brand storytelling for outdoor brands[cite: 5, 8, 9].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: What I Do -->
+    <section id="what-i-do" class="py-20 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-10">
             <div class="space-y-2">
                 <span class="text-xs font-mono uppercase tracking-widest text-muted">Capabilities</span>
                 <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">What I Do</h2>
             </div>
 
             <div class="divide-y divide-line border-y border-line">
-                <!-- Row 1 -->
                 <div class="accordion-item group cursor-pointer py-6">
                     <div class="flex justify-between items-center accordion-header">
                         <h3 class="text-xl md:text-2xl font-bold tracking-tight">01 / Branding & Digital Presence</h3>
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-2">
-                        <p>• Brand Identity Development & Voice</p>
-                        <p>• Personal Branding & Executive Thought Leadership</p>
-                        <p>• Website Planning & UX Copywriting</p>
-                        <p>• Information Architecture & Content Strategy</p>
-                        <p>• Sales Team LinkedIn Profile Positioning</p>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-2">
+                        <p>• Brand Identity Development & Voice[cite: 9]</p>
+                        <p>• Personal Branding & Executive Thought Leadership[cite: 6, 9]</p>
+                        <p>• Website Planning & UX Copywriting[cite: 6, 9]</p>
+                        <p>• Information Architecture & Content Strategy[cite: 6, 9]</p>
+                        <p>• Sales Team LinkedIn Profile Positioning[cite: 6, 9]</p>
                     </div>
                 </div>
 
-                <!-- Row 2 -->
                 <div class="accordion-item group cursor-pointer py-6">
                     <div class="flex justify-between items-center accordion-header">
                         <h3 class="text-xl md:text-2xl font-bold tracking-tight">02 / Editorial & Publishing</h3>
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-2">
-                        <p>• Editorial Strategy & Supervision</p>
-                        <p>• Ghostwriting & Opinion Pieces</p>
-                        <p>• Policy & Conference Declaration Writing</p>
-                        <p>• Technical B2B Article Writing</p>
-                        <p>• Long-Form Features & Newsletters</p>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-2">
+                        <p>• Editorial Strategy & Supervision[cite: 3, 7, 9]</p>
+                        <p>• Ghostwriting & Opinion Pieces[cite: 3, 9]</p>
+                        <p>• Policy & Conference Declaration Writing[cite: 7, 8]</p>
+                        <p>• Technical B2B Article Writing[cite: 6, 9]</p>
+                        <p>• Long-Form Features & Newsletters[cite: 3, 9]</p>
                     </div>
                 </div>
 
-                <!-- Row 3 -->
                 <div class="accordion-item group cursor-pointer py-6">
                     <div class="flex justify-between items-center accordion-header">
                         <h3 class="text-xl md:text-2xl font-bold tracking-tight">03 / Multimedia & Campaigns</h3>
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-2">
-                        <p>• Short-Form Reel & Video Scriptwriting</p>
-                        <p>• Creative Direction & Visual Briefs</p>
-                        <p>• Narrative Carousel Storytelling</p>
-                        <p>• UGC Campaign Architecture</p>
-                        <p>• Meta Ad Scripts & Direct Response Copy</p>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-2">
+                        <p>• Short-Form Reel & Video Scriptwriting[cite: 3, 9]</p>
+                        <p>• Creative Direction & Visual Briefs[cite: 3, 5, 9]</p>
+                        <p>• Narrative Carousel Storytelling[cite: 3, 4, 9]</p>
+                        <p>• UGC Campaign Architecture[cite: 5, 9]</p>
+                        <p>• Meta Ad Scripts & Direct Response Copy[cite: 6, 9]</p>
                     </div>
                 </div>
 
-                <!-- Row 4 -->
                 <div class="accordion-item group cursor-pointer py-6">
                     <div class="flex justify-between items-center accordion-header">
                         <h3 class="text-xl md:text-2xl font-bold tracking-tight">04 / Research & Strategy</h3>
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-2">
-                        <p>• Qualitative & Ethnographic Research</p>
-                        <p>• Case Studies & Policy Concept Notes</p>
-                        <p>• Curriculum & Training Material Development</p>
-                        <p>• Cultural Heritage & Field Documentation</p>
-                        <p>• Internal & Stakeholder Communication</p>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-2">
+                        <p>• Qualitative & Ethnographic Research[cite: 3, 9]</p>
+                        <p>• Case Studies & Policy Concept Notes[cite: 3, 9]</p>
+                        <p>• Curriculum & Training Material Development[cite: 3, 9]</p>
+                        <p>• Cultural Heritage & Field Documentation[cite: 3, 9]</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Selected Work (Expandable Minimalist Drawers) -->
-    <section id="selected-work" class="py-24 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto space-y-12">
+    <!-- Section 5: Selected Work -->
+    <section id="selected-work" class="py-20 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-10">
             <div class="space-y-2">
                 <span class="text-xs font-mono uppercase tracking-widest text-muted">Portfolio</span>
                 <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Selected Work</h2>
-                <p class="text-xs font-mono text-muted uppercase">Tap any project below to expand the complete case study.</p>
             </div>
 
             <div class="divide-y divide-line border-y border-line">
-                
-                <!-- Work 1 -->
                 <div class="accordion-item group cursor-pointer py-8">
                     <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
                         <div>
                             <span class="text-xs font-mono text-muted uppercase block mb-1">UGC Campaign — Bikat Adventures</span>
-                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Go Nuts November</h3>
+                            <h3 class="text-2xl font-bold tracking-tight">Go Nuts November</h3>
                         </div>
-                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
-                        <p><strong>Philosophy:</strong> Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em>[cite: 5] November is traditionally a slow window for the trekking industry[cite: 5]. Rather than leading with discounts, the campaign shifted focus to an identity-first UGC challenge[cite: 5].</p>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-4">
+                        <p><strong>Philosophy:</strong> Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em>[cite: 5] Shifted focus to an identity-first UGC challenge[cite: 5].</p>
                         <p><strong>Execution:</strong> Owned end-to-end campaign architecture from naming and narrative to mechanics, Instagram reels, carousels, and winner announcements[cite: 5].</p>
-                        <div class="pt-2 font-mono text-xs text-ink">
-                            <strong>Metrics:</strong> 500K+ Views · 50+ UGC Entries · 2,000+ Follower Growth · 3 Brand Ambassadors Signed[cite: 5, 9]
-                        </div>
+                        <p class="font-mono text-xs text-ink">500K+ Views · 50+ UGC Entries · 2,000+ Follower Growth[cite: 5, 9]</p>
                     </div>
                 </div>
 
-                <!-- Work 2 -->
                 <div class="accordion-item group cursor-pointer py-8">
                     <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
                         <div>
                             <span class="text-xs font-mono text-muted uppercase block mb-1">Diplomatic Editorial — Bilateral Forum</span>
-                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">II Russian-Indian Youth Forum Declaration</h3>
+                            <h3 class="text-2xl font-bold tracking-tight">II Russian-Indian Youth Forum Declaration</h3>
                         </div>
-                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
+                    <div class="accordion-content text-muted font-normal text-sm space-y-4">
                         <p><strong>Role: Declaration Writer & Team Lead</strong>[cite: 7]</p>
-                        <p>Consolidated multi-session diplomatic discussions across science & technology, sustainability, social development, and women’s leadership into the official conference declaration document[cite: 7]. Led an editorial team of 3 editors and 10 volunteers[cite: 7].</p>
-                        <div class="pt-2">
-                            <a href="https://docs.google.com/document/d/1pdoV_LfoittQy9FGU8gjWfNfYIoRloD8P2osM7E8K5c/edit?tab=t.0#heading=h.n8ycswiabo17" target="_blank" class="font-mono text-xs text-ink underline">Read Official Declaration Document ↗</a>
-                        </div>
+                        <p>Consolidated multi-session diplomatic discussions across science, sustainability, and development into the official conference declaration document[cite: 7].</p>
+                        <a href="https://docs.google.com/document/d/1pdoV_LfoittQy9FGU8gjWfNfYIoRloD8P2osM7E8K5c/edit?tab=t.0#heading=h.n8ycswiabo17" target="_blank" class="font-mono text-xs text-ink underline block">Read Declaration ↗</a>
                     </div>
                 </div>
 
-                <!-- Work 3 -->
                 <div class="accordion-item group cursor-pointer py-8">
                     <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
                         <div>
                             <span class="text-xs font-mono text-muted uppercase block mb-1">SaaS CRM — Brand Architecture</span>
-                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">LynkedUp Pro</h3>
+                            <h3 class="text-2xl font-bold tracking-tight">LynkedUp Pro</h3>
                         </div>
-                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
-                        <p><strong>Positioning:</strong> <em>"The construction CRM that does the paperwork."</em>[cite: 6] Translated complex AI estimation capabilities into straightforward, benefit-led communication for roofing contractors[cite: 6].</p>
-                        <p><strong>Deliverables:</strong> Website copy, landing page strategy, Meta ads strategy, and multi-stage email drip campaigns (Founder Journey, Demo Drip, Trial Onboarding)[cite: 1, 6].</p>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-4">
+                        <p><strong>Positioning:</strong> <em>"The construction CRM that does the paperwork."</em>[cite: 6]</p>
+                        <p>Delivered website copy, landing page strategy, Meta ads strategy, and multi-stage email drip campaigns[cite: 1, 6].</p>
                     </div>
                 </div>
 
-                <!-- Work 4 -->
                 <div class="accordion-item group cursor-pointer py-8">
                     <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
                         <div>
                             <span class="text-xs font-mono text-muted uppercase block mb-1">IT Services & Thought Leadership</span>
-                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Galaxy Weblinks</h3>
+                            <h3 class="text-2xl font-bold tracking-tight">Galaxy Weblinks</h3>
                         </div>
-                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
-                        <p>Over 3.5 years, authored 150–200 long-form articles, ghostwrote 50+ thought leadership pieces for executive personal branding, built 20+ sales team LinkedIn profiles, and led SEO content strategy[cite: 6, 9].</p>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-4">
+                        <p>Authored 150–200 long-form articles, ghostwrote 50+ thought leadership pieces for executive personal branding, and built 20+ sales team LinkedIn profiles[cite: 6, 9].</p>
                     </div>
-                </div>
-
-                <!-- Work 5 -->
-                <div class="accordion-item group cursor-pointer py-8">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
-                        <div>
-                            <span class="text-xs font-mono text-muted uppercase block mb-1">HVAC Brand Messaging</span>
-                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Absolute Comfort Mechanical</h3>
-                        </div>
-                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
-                    </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
-                        <p>Led digital messaging framework from scratch for a Dallas-Fort Worth HVAC company[cite: 6]. Delivered complete website copy, local SEO content strategy, and founder brand narrative[cite: 6].</p>
-                    </div>
-                </div>
-
-                <!-- Work 6 -->
-                <div class="accordion-item group cursor-pointer py-8">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
-                        <div>
-                            <span class="text-xs font-mono text-muted uppercase block mb-1">B2B Conversion Funnels</span>
-                            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Email Drip Campaign Frameworks</h3>
-                        </div>
-                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Case Study +</span>
-                    </div>
-                    <div class="accordion-content text-muted font-normal text-sm md:text-base space-y-4">
-                        <p>Architected comprehensive B2B email nurtures tailored across customer intent stages: Founder Member Journey, Demo Drip, Trial-to-Onboarding, and Segmented Cold Outreach Sequences[cite: 1].</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Additional Websites List -->
-            <div class="pt-6">
-                <span class="text-xs font-mono uppercase text-muted block mb-4">Additional Platforms Shaped:</span>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono">
-                    <div class="p-3 border border-line">AnandDamani.com[cite: 6]</div>
-                    <div class="p-3 border border-line">Business Bridge Asia[cite: 6]</div>
-                    <div class="p-3 border border-line">RTCWeb.in[cite: 6]</div>
-                    <div class="p-3 border border-line">Global Peace Foundation[cite: 7, 9]</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Articles & Essays (Minimalist Link List) -->
-    <section id="articles" class="py-24 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto space-y-12">
+    <!-- Section 6: Published Writing -->
+    <section id="articles" class="py-20 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-10">
             <div class="space-y-2">
-                <span class="text-xs font-mono uppercase tracking-widest text-muted">Essays & Essays</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Published Writing</h2>
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Essays</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Published Articles</h2>
             </div>
 
             <div class="divide-y divide-line border-y border-line">
-                
-                <!-- Article 1 -->
-                <a href="https://www.stearthinktank.com/post/india-japan-relations-a-blueprint-for-the-asian-century" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                <a href="https://www.stearthinktank.com/post/india-japan-relations-a-blueprint-for-the-asian-century" target="_blank" class="py-5 flex justify-between items-center group block">
                     <div>
-                        <span class="text-xs font-mono text-muted uppercase block">STEAR Think Tank · Geopolitics</span>
-                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">India–Japan Relations: A Blueprint for the ‘Asian Century’</h3>
+                        <span class="text-xs font-mono text-muted block">STEAR Think Tank</span>
+                        <h3 class="text-lg font-bold tracking-tight group-hover:underline">India–Japan Relations: A Blueprint for the ‘Asian Century’</h3>
                     </div>
-                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                    <span class="text-xs font-mono text-ink">Read ↗</span>
                 </a>
 
-                <!-- Article 2 -->
-                <a href="https://www.bikatadventures.com/Home/Blog/Winter-adventures-treks-skiing-snow-leopard" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                <a href="https://www.bikatadventures.com/Home/Blog/Winter-adventures-treks-skiing-snow-leopard" target="_blank" class="py-5 flex justify-between items-center group block">
                     <div>
-                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Expedition Narrative</span>
-                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">Winter’s Best Kept Secrets: Snow, Solitude & Serious Altitude</h3>
+                        <span class="text-xs font-mono text-muted block">Bikat Adventures</span>
+                        <h3 class="text-lg font-bold tracking-tight group-hover:underline">Winter’s Best Kept Secrets: Snow, Solitude & Serious Altitude</h3>
                     </div>
-                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                    <span class="text-xs font-mono text-ink">Read ↗</span>
                 </a>
 
-                <!-- Article 3 -->
-                <a href="https://www.bikatadventures.com/Home/Blog/india-himalayan-mountaineering-history" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                <a href="https://www.bikatadventures.com/Home/Blog/india-himalayan-mountaineering-history" target="_blank" class="py-5 flex justify-between items-center group block">
                     <div>
-                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Cultural History</span>
-                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">From Shackles to Summits | India’s Mountaineering Freedom Story</h3>
+                        <span class="text-xs font-mono text-muted block">Bikat Adventures</span>
+                        <h3 class="text-lg font-bold tracking-tight group-hover:underline">From Shackles to Summits | India’s Mountaineering Freedom Story</h3>
                     </div>
-                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                    <span class="text-xs font-mono text-ink">Read ↗</span>
                 </a>
 
-                <!-- Article 4 -->
-                <a href="https://www.bikatadventures.com/Home/Blog/cold-exposure-testosterone-hack" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                <a href="https://docs.google.com/document/d/1tet94eMDcyxAqSN85XtNWyWmJLT5d_FC8goicH4ucLQ/edit?tab=t.0" target="_blank" class="py-5 flex justify-between items-center group block">
                     <div>
-                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Brand Philosophy</span>
-                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">An Open Letter from Testosterone</h3>
+                        <span class="text-xs font-mono text-muted block">Master's Thesis · BHU</span>
+                        <h3 class="text-lg font-bold tracking-tight group-hover:underline">Voices of Tradition: Vedic Education System in Banaras</h3>
                     </div>
-                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
+                    <span class="text-xs font-mono text-ink">View ↗</span>
                 </a>
 
-                <!-- Article 5 -->
-                <a href="https://www.bikatadventures.com/Home/Blog/Women-on-the-trail-trekking-guide" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
+                <a href="https://substack.com/@shivambillore" target="_blank" class="py-5 flex justify-between items-center group block">
                     <div>
-                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Social Communication</span>
-                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">Women on the Trail: Physiology, Periods & Respect in the Mountains</h3>
+                        <span class="text-xs font-mono text-muted block">Substack</span>
+                        <h3 class="text-lg font-bold tracking-tight group-hover:underline">Shivam Billore on Substack</h3>
                     </div>
-                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
-                </a>
-
-                <!-- Article 6 -->
-                <a href="https://www.bikatadventures.com/Home/Blog/Sacred-Treks-in-the-Himalayas" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
-                    <div>
-                        <span class="text-xs font-mono text-muted uppercase block">Bikat Adventures · Culture & Philosophy</span>
-                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">The Spiritual Side of Trekking: Sacred Treks That Heal</h3>
-                    </div>
-                    <span class="text-xs font-mono uppercase text-ink">Read Article ↗</span>
-                </a>
-
-                <!-- Article 7 -->
-                <a href="https://docs.google.com/document/d/1tet94eMDcyxAqSN85XtNWyWmJLT5d_FC8goicH4ucLQ/edit?tab=t.0" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
-                    <div>
-                        <span class="text-xs font-mono text-muted uppercase block">Master's Thesis · BHU</span>
-                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">Voices of Tradition: Vedic Education System in Contemporary Banaras</h3>
-                    </div>
-                    <span class="text-xs font-mono uppercase text-ink">View Research ↗</span>
-                </a>
-
-                <!-- Article 8 -->
-                <a href="https://substack.com/@shivambillore" target="_blank" class="py-6 flex flex-col md:flex-row md:items-center justify-between group block gap-2">
-                    <div>
-                        <span class="text-xs font-mono text-muted uppercase block">Substack Publication</span>
-                        <h3 class="text-xl font-bold tracking-tight group-hover:underline">Shivam Billore on Substack</h3>
-                    </div>
-                    <span class="text-xs font-mono uppercase text-ink">Visit Substack ↗</span>
-                </a>
-
-            </div>
-
-            <div class="pt-4">
-                <a href="https://rtcweb.in/blog/" target="_blank" class="text-xs font-mono uppercase text-muted hover:text-ink underline">
-                    Explore 50+ B2B Technical WebRTC Blogs at RTCWeb.in ↗
+                    <span class="text-xs font-mono text-ink">Visit ↗</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Section 6: Socials By Me (Drawer Format) -->
-    <section id="socials" class="py-24 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto space-y-12">
+    <!-- Section 7: Education & Credentials -->
+    <section id="experience" class="py-20 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-8">
             <div class="space-y-2">
-                <span class="text-xs font-mono uppercase tracking-widest text-muted">Social Architecture</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Socials By Me</h2>
-                <p class="text-xs font-mono text-muted uppercase">20M+ Organic Views · 11M+ Single Reel · 50+ Carousels[cite: 9]</p>
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Academic Background</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Education</h2>
             </div>
 
-            <div class="divide-y divide-line border-y border-line">
-                
-                <!-- Reel Group -->
-                <div class="accordion-item group cursor-pointer py-8">
-                    <div class="flex justify-between items-center accordion-header">
-                        <div>
-                            <span class="text-xs font-mono text-muted uppercase block">Scripted & Shot</span>
-                            <h3 class="text-2xl font-bold tracking-tight">Viral Reels & Short Form (11M+ Views)</h3>
-                        </div>
-                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Links +</span>
-                    </div>
-                    <div class="accordion-content space-y-4">
-                        <div class="space-y-3 font-mono text-xs">
-                            <a href="https://www.instagram.com/p/DLAY3mRhver/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>POV: Your Honest Trek Guide (11M+ Views)</strong> — Scripted, shot, and directed independently ↗
-                            </a>
-                            <a href="https://www.instagram.com/reels/DR4f66gAaYR/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Pangarchulla Trek Cinematic Voiceover Reel</strong> — Philosophical script ↗
-                            </a>
-                            <a href="https://www.instagram.com/reel/DRKOrQSgZP8/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Weird Questions Trekkers Ask Sales Teams</strong> — Sarcastic audio concept ↗
-                            </a>
-                            <a href="https://www.instagram.com/reel/DQozEqxgbMG/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>GoNutsNovember Explainer Reel</strong> — UGC Campaign Launch ↗
-                            </a>
-                        </div>
-                    </div>
+            <div class="p-8 border border-line space-y-4">
+                <div>
+                    <span class="text-xs font-mono text-muted uppercase">Master's Degree</span>
+                    <h3 class="text-xl font-bold text-ink">MA in Conflict Management & Development</h3>
+                    <p class="text-xs font-mono text-muted">Banaras Hindu University (UNESCO Chair for Peace)[cite: 9]</p>
                 </div>
-
-                <!-- Carousel Group -->
-                <div class="accordion-item group cursor-pointer py-8">
-                    <div class="flex justify-between items-center accordion-header">
-                        <div>
-                            <span class="text-xs font-mono text-muted uppercase block">Brand Storytelling</span>
-                            <h3 class="text-2xl font-bold tracking-tight">Narrative Carousels (50+ Concepts)</h3>
-                        </div>
-                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Links +</span>
-                    </div>
-                    <div class="accordion-content space-y-4">
-                        <div class="space-y-3 font-mono text-xs">
-                            <a href="https://www.instagram.com/p/DOJIR1rATP_/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Govt Employees: Office Might Pay You to Trek (500K+ Views)</strong> ↗
-                            </a>
-                            <a href="https://www.instagram.com/p/DNYEK_3BBXB/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Before 1947, These Mountains Weren't Ours (100K+ Views)</strong> ↗
-                            </a>
-                            <a href="https://www.instagram.com/p/DKmZSNKBIu9/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Turning Back 80m Before Summit at 6300m</strong> ↗
-                            </a>
-                            <a href="https://www.instagram.com/p/DPoWUcLgkqN/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Diwali Wishlist: Trekker's Edition</strong> ↗
-                            </a>
-                            <a href="https://www.instagram.com/p/DK9jQMUBb3a/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Your First Will Always Be Bad</strong> ↗
-                            </a>
-                            <a href="https://www.instagram.com/p/DNx91H_QiG3/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Climbing a Mountain is a Journey Inward</strong> ↗
-                            </a>
-                            <a href="https://www.instagram.com/p/DLkhhSFhX4V/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Not All Summits Are Physical; Some Are Spiritual</strong> ↗
-                            </a>
-                            <a href="https://www.instagram.com/p/DNTB-TjBjZK/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>The Mountain We Are Not Allowed to Climb</strong> ↗
-                            </a>
-                            <a href="https://www.instagram.com/p/DUQHLR5gU6S/" target="_blank" class="block p-4 border border-line hover:border-ink">
-                                <strong>Union Budget's Impact on Trekking Industry</strong> ↗
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 7: Experience & Credentials -->
-    <section id="experience" class="py-24 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto space-y-12">
-            <div class="space-y-2">
-                <span class="text-xs font-mono uppercase tracking-widest text-muted">History</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Work Experience</h2>
-            </div>
-
-            <div class="divide-y divide-line border-y border-line">
-                
-                <div class="py-8 space-y-2">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between">
-                        <h3 class="text-xl font-bold">Bikat Adventures — Content Manager</h3>
-                        <span class="text-xs font-mono text-muted">May 2025 – March 2026</span>
-                    </div>
-                    <p class="text-sm text-muted font-normal">
-                        Scaled audience by 25% (48K to 60K)[cite: 9], generated 20M+ organic views[cite: 9], launched GoNutsNovember UGC campaign[cite: 5, 9], overhauled SEO architecture with 500+ master keywords[cite: 9], and authored newsletters[cite: 9].
-                    </p>
-                </div>
-
-                <div class="py-8 space-y-2">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between">
-                        <h3 class="text-xl font-bold">Freelance Brand & Content Strategist</h3>
-                        <span class="text-xs font-mono text-muted">April 2022 – Present</span>
-                    </div>
-                    <p class="text-sm text-muted font-normal">
-                        Architected digital identities from zero for 5 brands (LynkedUp Pro, Absolute Comfort, AchievAR, Insignia Consultancy, Aaidea)[cite: 9]. Delivered website copy, positioning frameworks, and social roadmaps[cite: 9].
-                    </p>
-                </div>
-
-                <div class="py-8 space-y-2">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between">
-                        <h3 class="text-xl font-bold">Galaxy Weblinks Inc. — Content Marketing Lead</h3>
-                        <span class="text-xs font-mono text-muted">May 2018 – March 2022</span>
-                    </div>
-                    <p class="text-sm text-muted font-normal">
-                        Authored 150–200 long-form articles[cite: 9], ghostwrote 50+ CEO thought leadership pieces[cite: 9], built 20+ sales LinkedIn profiles[cite: 9], and led SEO strategy for B2B tech verticals[cite: 9].
-                    </p>
-                </div>
-
-                <div class="py-8 space-y-2">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between">
-                        <h3 class="text-xl font-bold">India Infotech — Content Writer & Editor</h3>
-                        <span class="text-xs font-mono text-muted">Feb 2017 – May 2018</span>
-                    </div>
-                    <p class="text-sm text-muted font-normal">
-                        Delivered 6–7 daily SEO blogs for international clients across 10+ industries[cite: 9]; promoted to editor within 12 months[cite: 9].
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- Credentials -->
-            <div class="pt-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-mono">
-                <div class="p-6 border border-line">
-                    <strong class="block text-sm font-bold uppercase mb-2">Education</strong>
-                    <p>MA in Conflict Management & Development — Banaras Hindu University[cite: 9]</p>
-                    <p>B.Com (Honours) — Altius Institute, Indore[cite: 9]</p>
-                </div>
-                <div class="p-6 border border-line">
-                    <strong class="block text-sm font-bold uppercase mb-2">Qualifications</strong>
-                    <p>• UGC NET-JRF Qualified (Assistant Professor)[cite: 9]</p>
-                    <p>• Basic Mountaineering & Skiing Courses[cite: 9]</p>
+                <div class="pt-4 border-t border-line">
+                    <span class="text-xs font-mono text-muted uppercase">National Qualification</span>
+                    <p class="text-sm font-bold text-ink">UGC NET-JRF Qualified (Assistant Professor Eligibility)[cite: 9]</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 8: Tools -->
-    <section id="tools" class="py-16 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto space-y-6">
-            <span class="text-xs font-mono uppercase text-muted">Toolkit</span>
-            <div class="flex flex-wrap gap-3 text-xs font-mono">
-                <span class="p-2 border border-line">Notion</span>
-                <span class="p-2 border border-line">Ghost</span>
-                <span class="p-2 border border-line">Claude 3.5</span>
-                <span class="p-2 border border-line">Gemini</span>
-                <span class="p-2 border border-line">NotebookLM</span>
-                <span class="p-2 border border-line">Ahrefs</span>
-                <span class="p-2 border border-line">SEMrush</span>
-                <span class="p-2 border border-line">Yoast SEO</span>
-                <span class="p-2 border border-line">Canva</span>
-                <span class="p-2 border border-line">Framer</span>
-                <span class="p-2 border border-line">Meta Suite</span>
-            </div>
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-line text-xs font-mono text-muted">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <span>© Shivam Billore</span>
+            <span>Minimalist Editorial Edition</span>
         </div>
-    </section>
+    </footer>
 
-    <!-- Section 9: Contact -->
-    <section id="contact" class="py-24 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto space-y-12">
-            <div class="space-y-4">
-                <span class="text-xs font-mono uppercase tracking-widest text-muted">Contact</span>
-                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Let’s Connect</h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs font-mono">
-                <a href="mailto:writetoshivambillore@gmail.com" class="p-6 border border-line hover:border-ink transition-colors block">
-                    <span class="text-muted block mb-2">EMAIL</span>
-                    <span class="font-bold break-all">writetoshivambillore@gmail.com</span>
-                </a>
-                <a href="https://linkedin.com/in/shivambillore" target="_blank" class="p-6 border border-line hover:border-ink transition-colors block">
-                    <span class="text-muted block mb-2">LINKEDIN</span>
-                    <span class="font-bold break-all">linkedin.com/in/shivambillore</span>
-                </a>
-                <a href="https://instagram.com/shivyaatra" target="_blank" class="p-6 border border-line hover:border-ink transition-colors block">
-                    <span class="text-muted block mb-2">INSTAGRAM</span>
-                    <span class="font-bold break-all">@shivyaatra</span>
-                </a>
-                <a href="https://wa.me/918818869199" target="_blank" class="p-6 border border-line hover:border-ink transition-colors block">
-                    <span class="text-muted block mb-2">WHATSAPP</span>
-                    <span class="font-bold break-all">+91 8818869199</span>
-                </a>
-            </div>
-
-            <div class="pt-12 text-xs font-mono text-muted border-t border-line">
-                © Shivam Billore. Minimalist Editorial Design.
-            </div>
-        </div>
-    </section>
-
-    <!-- JavaScript Accordion Engine -->
+    <!-- JavaScript for Contact Menu and Accordion -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        const contactBtn = document.getElementById('contact-menu-btn');
+        const contactMenu = document.getElementById('contact-menu');
+        contactBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            contactMenu.classList.toggle('hidden');
+        });
+        document.addEventListener('click', () => {
+            contactMenu.classList.add('hidden');
         });
 
-        // Universal Accordion Engine
         const accordionItems = document.querySelectorAll('.accordion-item');
         accordionItems.forEach(item => {
             const header = item.querySelector('.accordion-header');
             header.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
-                // Close all active drawers within the same parent section
                 const parentSection = item.closest('section');
-                parentSection.querySelectorAll('.accordion-item').forEach(i => {
-                    i.classList.remove('active');
-                });
-
-                // Toggle target drawer
-                if (!isActive) {
-                    item.classList.add('active');
-                }
+                parentSection.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
             });
         });
     </script>
