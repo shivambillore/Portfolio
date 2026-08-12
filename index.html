@@ -19,6 +19,7 @@
                     fontFamily: {
                         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
+                        signature: ['Caveat', 'Playfair Display', 'serif'],
                     }
                 }
             }
@@ -26,7 +27,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f7f7f5; color: #111111; }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, opacity 0.3s ease; opacity: 0; }
@@ -64,9 +65,18 @@
     <section class="min-h-[85vh] pt-36 pb-16 px-6 flex items-center max-w-5xl mx-auto">
         <div class="space-y-8">
             <span class="text-xs uppercase font-mono tracking-widest text-muted block">Writer & Communication Strategist</span>
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-ink">
-                I am a writer and strategist trying to do great work.
+            
+            <!-- Headline with Signature Integration -->
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.15] text-ink flex flex-wrap items-center gap-3">
+                <span>I am</span>
+                <!-- Signature Image / Fallback -->
+                <span class="inline-block relative">
+                    <img src="signature.png" alt="Shivam" class="h-12 sm:h-16 md:h-20 inline-block object-contain mix-blend-multiply" onerror="this.style.display='none'; document.getElementById('signature-fallback').style.display='inline';">
+                    <span id="signature-fallback" class="font-signature text-4xl sm:text-6xl md:text-7xl font-bold text-ink normal-case tracking-normal px-1" style="display:none;">Shivam</span>
+                </span>
+                <span>and strategist...</span>
             </h1>
+
             <p class="text-base md:text-xl text-muted font-light leading-relaxed max-w-2xl">
                 Communication is more than words. It is how ideas travel, communities form, and brands earn trust.
             </p>
@@ -77,8 +87,8 @@
                 <button id="open-photos-btn" class="px-8 py-4 border border-ink text-ink text-xs font-bold uppercase tracking-widest hover:bg-ink hover:text-canvas transition-all">
                     Visual Notes ↗
                 </button>
-                <a href="Shivam_Billore_Resume.pdf" download class="text-xs font-mono uppercase tracking-widest text-muted hover:text-ink transition-colors border-b border-muted pb-0.5">
-                    Resume (PDF) ↓
+                <a href="Shivam_Billore_Resume.docx" download class="text-xs font-mono uppercase tracking-widest text-muted hover:text-ink transition-colors border-b border-muted pb-0.5">
+                    Resume (DOCX) ↓
                 </a>
             </div>
         </div>
@@ -89,7 +99,7 @@
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
             <div class="md:col-span-4">
                 <div class="w-48 h-48 md:w-56 md:h-56 bg-stone-300 rounded-full overflow-hidden shadow-sm border border-line mx-auto md:mx-0">
-                    <img src="profile.jpeg" alt="Shivam Billore" class="w-full h-full object-cover grayscale contrast-125">
+                    <img src="profile.jpeg" alt="Shivam Billore" class="w-full h-full object-cover grayscale contrast-125" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500';">
                 </div>
             </div>
             <div class="md:col-span-8 space-y-6">
@@ -98,10 +108,10 @@
                 </h2>
                 <div class="space-y-4 text-muted leading-relaxed font-normal text-sm md:text-base">
                     <p>
-                        With over 9 years of experience across travel, IT services, B2B SaaS, non-profits, and international forums, I operate at the intersection of brand strategy, narrative copy, and AI-enabled communication.
+                        With over 9 years of experience across travel, IT services, B2B SaaS, non-profits, and international forums, I operate at the intersection of brand strategy, narrative copy, and AI-enabled communication[cite: 9].
                     </p>
                     <p>
-                        My work focuses on transforming digital presences into high-performing content ecosystems. Whether architecting complete brand voices from scratch, conceptualizing viral campaigns, or translating complex diplomatic and technical frameworks into accessible stories, I ensure design and words complement each other seamlessly.
+                        My work focuses on transforming digital presences into high-performing content ecosystems[cite: 9]. Whether architecting complete brand voices from scratch, conceptualizing viral campaigns, or translating complex diplomatic and technical frameworks into accessible stories, I ensure design and words complement each other seamlessly.
                     </p>
                 </div>
             </div>
@@ -123,11 +133,11 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Brand Identity Development & Voice</p>
-                        <p>• Personal Branding & Executive Thought Leadership</p>
-                        <p>• Website Planning & UX Copywriting</p>
-                        <p>• Information Architecture & Content Strategy</p>
-                        <p>• Sales Team LinkedIn Profile Positioning</p>
+                        <p>• Brand Identity Development & Voice[cite: 9]</p>
+                        <p>• Personal Branding & Executive Thought Leadership[cite: 6, 9]</p>
+                        <p>• Website Planning & UX Copywriting[cite: 6, 9]</p>
+                        <p>• Information Architecture & Content Strategy[cite: 6, 9]</p>
+                        <p>• Sales Team LinkedIn Profile Positioning[cite: 6, 9]</p>
                     </div>
                 </div>
 
@@ -137,11 +147,11 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Editorial Strategy & Supervision</p>
-                        <p>• Ghostwriting & Opinion Pieces</p>
-                        <p>• Policy & Conference Declaration Writing</p>
-                        <p>• Technical B2B Article Writing</p>
-                        <p>• Long-Form Features & Newsletters</p>
+                        <p>• Editorial Strategy & Supervision[cite: 3, 7, 9]</p>
+                        <p>• Ghostwriting & Opinion Pieces[cite: 3, 9]</p>
+                        <p>• Policy & Conference Declaration Writing[cite: 7, 8]</p>
+                        <p>• Technical B2B Article Writing[cite: 6, 9]</p>
+                        <p>• Long-Form Features & Newsletters[cite: 3, 9]</p>
                     </div>
                 </div>
 
@@ -151,11 +161,11 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Short-Form Reel & Video Scriptwriting</p>
-                        <p>• Creative Direction & Visual Briefs</p>
-                        <p>• Narrative Carousel Storytelling</p>
-                        <p>• UGC Campaign Architecture</p>
-                        <p>• Meta Ad Scripts & Direct Response Copy</p>
+                        <p>• Short-Form Reel & Video Scriptwriting[cite: 3, 9]</p>
+                        <p>• Creative Direction & Visual Briefs[cite: 3, 5, 9]</p>
+                        <p>• Narrative Carousel Storytelling[cite: 3, 4, 9]</p>
+                        <p>• UGC Campaign Architecture[cite: 5, 9]</p>
+                        <p>• Meta Ad Scripts & Direct Response Copy[cite: 6, 9]</p>
                     </div>
                 </div>
 
@@ -165,10 +175,10 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• SEO Strategy & Master Keyword Architecture</p>
-                        <p>• Multi-Stage Email Drip Campaigns & Conversions</p>
-                        <p>• Editorial Calendar & Publishing Workflows</p>
-                        <p>• Organic Social Media Scale & Audience Growth</p>
+                        <p>• SEO Strategy & Master Keyword Architecture[cite: 9, 11]</p>
+                        <p>• Multi-Stage Email Drip Campaigns & Conversions[cite: 1, 9]</p>
+                        <p>• Editorial Calendar & Publishing Workflows[cite: 6, 9]</p>
+                        <p>• Organic Social Media Scale & Audience Growth[cite: 9]</p>
                     </div>
                 </div>
 
@@ -178,10 +188,10 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Brand Positioning & Narrative Frameworks</p>
-                        <p>• Internal & Stakeholder Communication</p>
-                        <p>• Event & Conference Live Coverage</p>
-                        <p>• Community Engagement & Workshops</p>
+                        <p>• Brand Positioning & Narrative Frameworks[cite: 3, 10]</p>
+                        <p>• Internal & Stakeholder Communication[cite: 3, 10]</p>
+                        <p>• Event & Conference Live Coverage[cite: 3, 9]</p>
+                        <p>• Community Engagement & Workshops[cite: 3, 5, 15]</p>
                     </div>
                 </div>
 
@@ -191,10 +201,10 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Qualitative & Ethnographic Research</p>
-                        <p>• Case Studies & Policy Concept Notes</p>
-                        <p>• Curriculum & Training Material Development</p>
-                        <p>• Cultural Heritage & Field Documentation</p>
+                        <p>• Qualitative & Ethnographic Research[cite: 3, 9]</p>
+                        <p>• Case Studies & Policy Concept Notes[cite: 3, 9, 10]</p>
+                        <p>• Curriculum & Training Material Development[cite: 3, 9]</p>
+                        <p>• Cultural Heritage & Field Documentation[cite: 3, 8, 9]</p>
                     </div>
                 </div>
             </div>
@@ -220,7 +230,7 @@
                         <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-4">
-                        <p><strong>Philosophy:</strong> Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em> Shifted focus from discounts to an identity-first UGC challenge during Bikat's slowest window[cite: 5].</p>
+                        <p><strong>Philosophy:</strong> Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em>[cite: 5] Shifted focus from discounts to an identity-first UGC challenge during Bikat's slowest window[cite: 5].</p>
                         <p><strong>System Design:</strong> Designed the complete 11-stage Post-Booking Communication Roadmap across WhatsApp and Email (Compliance, Fitness Benchmarks, Gear Logic, Group Formation) and authored ground briefing protocols for trek leaders[cite: 12, 15].</p>
                         <p class="font-mono text-xs text-ink">500K+ Views · 50+ UGC Entries · 2,000+ Follower Growth · 3 Ambassadors Signed[cite: 5, 9]</p>
                     </div>
@@ -320,7 +330,7 @@
             <div class="space-y-2">
                 <span class="text-xs font-mono uppercase tracking-widest text-muted">Social Architecture</span>
                 <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Socials By Me</h2>
-                <p class="text-xs font-mono text-muted uppercase">20M+ Organic Views · 11M+ Single Reel · 50+ Carousels</p>
+                <p class="text-xs font-mono text-muted uppercase">20M+ Organic Views · 11M+ Single Reel · 50+ Carousels[cite: 9]</p>
             </div>
 
             <div class="divide-y divide-line border-y border-line">
@@ -396,7 +406,7 @@
         </div>
     </section>
 
-    <!-- Section 6: Published Work (Renamed Header & Prominent Links) -->
+    <!-- Section 6: Published Work -->
     <section id="articles" class="py-20 px-6 border-t border-line">
         <div class="max-w-5xl mx-auto space-y-10">
             <div class="space-y-2">
@@ -446,7 +456,7 @@
                 </a>
             </div>
 
-            <!-- Prominent Archive Links Below Published Work -->
+            <!-- Prominent Archive Links -->
             <div class="pt-4 space-y-3 font-mono text-xs">
                 <a href="https://www.bikatadventures.com/Home/Blogs" target="_blank" class="block text-muted hover:text-ink underline">
                     Explore 50+ High-Altitude Outdoor Articles at Bikat Adventures ↗
@@ -467,7 +477,7 @@
             <div class="space-y-2">
                 <span class="text-xs font-mono uppercase tracking-widest text-muted">Field Notes</span>
                 <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">The Road & The Trail</h2>
-                <p class="text-sm text-muted max-w-2xl">The way I write and think has been shaped as much by the road as by any office.</p>
+                <p class="text-sm text-muted max-w-2xl">The way I write and think has been shaped as much by the road as by any office[cite: 8].</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-mono">
@@ -475,21 +485,21 @@
                     <span class="text-muted block font-bold uppercase">Narmada Parikrama</span>
                     <h3 class="text-base font-bold text-ink">3,000 KM On Foot</h3>
                     <p class="text-muted font-sans text-xs leading-relaxed">
-                        Walked over 3,000 kilometers around the Narmada River across 115 days, carrying everything on my back and depending on the kindness of strangers. Taught me patience, endurance, and quiet observation.
+                        Walked over 3,000 kilometers around the Narmada River across 115 days, carrying everything on my back and depending on the kindness of strangers[cite: 8]. Taught me patience, endurance, and quiet observation[cite: 8].
                     </p>
                 </div>
                 <div class="p-6 border border-line space-y-3">
                     <span class="text-muted block font-bold uppercase">Mountaineering & Skiing</span>
                     <h3 class="text-base font-bold text-ink">High-Altitude Discipline</h3>
                     <p class="text-muted font-sans text-xs leading-relaxed">
-                        Completed formal Basic Mountaineering and Basic Skiing courses in the Himalayas. High-altitude conditions reframed how I approach risk, resilience, and decision-making under pressure.
+                        Completed formal Basic Mountaineering and Basic Skiing courses in the Himalayas[cite: 8, 9]. High-altitude conditions reframed how I approach risk, resilience, and decision-making under pressure[cite: 8].
                     </p>
                 </div>
                 <div class="p-6 border border-line space-y-3">
                     <span class="text-muted block font-bold uppercase">Expeditions & Culture</span>
                     <h3 class="text-base font-bold text-ink">Himalayan Documentation</h3>
                     <p class="text-muted font-sans text-xs leading-relaxed">
-                        Spent years documenting mountain communities, remote villages, and high-altitude expeditions. Bridging ethnographic observation with brand storytelling for outdoor brands.
+                        Spent years documenting mountain communities, remote villages, and high-altitude expeditions[cite: 8, 9]. Bridging ethnographic observation with brand storytelling for outdoor brands[cite: 5, 8, 9].
                     </p>
                 </div>
             </div>
@@ -508,11 +518,11 @@
                 <div>
                     <span class="text-xs font-mono text-muted uppercase">Master's Degree</span>
                     <h3 class="text-xl font-bold text-ink">MA in Conflict Management & Development</h3>
-                    <p class="text-xs font-mono text-muted">Banaras Hindu University (UNESCO Chair for Peace)</p>
+                    <p class="text-xs font-mono text-muted">Banaras Hindu University (UNESCO Chair for Peace)[cite: 9]</p>
                 </div>
                 <div class="pt-4 border-t border-line">
                     <span class="text-xs font-mono text-muted uppercase">National Qualification</span>
-                    <p class="text-sm font-bold text-ink">UGC NET-JRF Qualified (Assistant Professor Eligibility)</p>
+                    <p class="text-sm font-bold text-ink">UGC NET-JRF Qualified (Assistant Professor Eligibility)[cite: 9]</p>
                 </div>
             </div>
         </div>
@@ -545,22 +555,22 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
                 <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
-                    <img src="photo1.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    <img src="photo1.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600';">
                 </div>
                 <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
-                    <img src="photo2.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    <img src="photo2.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600';">
                 </div>
                 <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
-                    <img src="photo3.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    <img src="photo3.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=600';">
                 </div>
                 <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
-                    <img src="photo4.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    <img src="photo4.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600';">
                 </div>
                 <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
-                    <img src="photo5.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    <img src="photo5.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1511497584788-876761c119ef?w=600';">
                 </div>
                 <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
-                    <img src="photo6.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    <img src="photo6.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600';">
                 </div>
             </div>
         </div>
