@@ -30,8 +30,9 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f7f7f5; color: #111111; }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, opacity 0.3s ease; opacity: 0; }
-        .accordion-item.active .accordion-content { max-height: 2000px; opacity: 1; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .accordion-item.active .accordion-content { max-height: 3000px; opacity: 1; padding-top: 1.5rem; padding-bottom: 1.5rem; }
         .accordion-item.active .accordion-icon { transform: rotate(45deg); }
+        .modal-active { overflow: hidden; }
     </style>
 </head>
 <body class="bg-canvas text-ink antialiased selection:bg-ink selection:text-canvas">
@@ -73,9 +74,9 @@
                 <a href="#selected-work" class="px-8 py-4 bg-ink text-canvas text-xs font-bold uppercase tracking-widest hover:bg-muted transition-all">
                     See My Work
                 </a>
-                <a href="photos.html" class="px-8 py-4 border border-ink text-ink text-xs font-bold uppercase tracking-widest hover:bg-ink hover:text-canvas transition-all">
+                <button id="open-photos-btn" class="px-8 py-4 border border-ink text-ink text-xs font-bold uppercase tracking-widest hover:bg-ink hover:text-canvas transition-all">
                     Visual Notes ↗
-                </a>
+                </button>
                 <a href="Shivam_Billore_Resume.pdf" download class="text-xs font-mono uppercase tracking-widest text-muted hover:text-ink transition-colors border-b border-muted pb-0.5">
                     Resume (PDF) ↓
                 </a>
@@ -97,52 +98,17 @@
                 </h2>
                 <div class="space-y-4 text-muted leading-relaxed font-normal text-sm md:text-base">
                     <p>
-                        With over 9 years of experience across travel, IT services, B2B SaaS, non-profits, and international forums, I operate at the intersection of brand strategy, narrative copy, and AI-enabled communication[cite: 9].
+                        With over 9 years of experience across travel, IT services, B2B SaaS, non-profits, and international forums, I operate at the intersection of brand strategy, narrative copy, and AI-enabled communication.
                     </p>
                     <p>
-                        My work focuses on transforming digital presences into high-performing content ecosystems[cite: 9]. Whether architecting complete brand voices from scratch, conceptualizing viral campaigns, or translating complex diplomatic and technical frameworks into accessible stories, I ensure design and words complement each other seamlessly.
+                        My work focuses on transforming digital presences into high-performing content ecosystems. Whether architecting complete brand voices from scratch, conceptualizing viral campaigns, or translating complex diplomatic and technical frameworks into accessible stories, I ensure design and words complement each other seamlessly.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Journeys & Field Notes (New Travel Section) -->
-    <section id="journeys" class="py-20 px-6 border-t border-line">
-        <div class="max-w-5xl mx-auto space-y-10">
-            <div class="space-y-2">
-                <span class="text-xs font-mono uppercase tracking-widest text-muted">Field Notes</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">The Road & The Trail</h2>
-                <p class="text-sm text-muted max-w-2xl">The way I write and think has been shaped as much by the road as by any office[cite: 8].</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-mono">
-                <div class="p-6 border border-line space-y-3">
-                    <span class="text-muted block font-bold uppercase">Narmada Parikrama</span>
-                    <h3 class="text-base font-bold text-ink">3,000 KM On Foot</h3>
-                    <p class="text-muted font-sans text-xs leading-relaxed">
-                        Walked over 3,000 kilometers around the Narmada River across 115 days, carrying everything on my back and depending on the kindness of strangers[cite: 8]. Taught me patience, endurance, and quiet observation[cite: 8].
-                    </p>
-                </div>
-                <div class="p-6 border border-line space-y-3">
-                    <span class="text-muted block font-bold uppercase">Mountaineering & Skiing</span>
-                    <h3 class="text-base font-bold text-ink">High-Altitude Discipline</h3>
-                    <p class="text-muted font-sans text-xs leading-relaxed">
-                        Completed formal Basic Mountaineering and Basic Skiing courses in the Himalayas[cite: 8, 9]. High-altitude conditions reframed how I approach risk, resilience, and decision-making under pressure[cite: 8].
-                    </p>
-                </div>
-                <div class="p-6 border border-line space-y-3">
-                    <span class="text-muted block font-bold uppercase">Expeditions & Culture</span>
-                    <h3 class="text-base font-bold text-ink">Himalayan Documentation</h3>
-                    <p class="text-muted font-sans text-xs leading-relaxed">
-                        Spent years documenting mountain communities, remote villages, and high-altitude expeditions[cite: 8, 9]. Bridging ethnographic observation with brand storytelling for outdoor brands[cite: 5, 8, 9].
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: What I Do -->
+    <!-- Section 3: What I Do -->
     <section id="what-i-do" class="py-20 px-6 border-t border-line">
         <div class="max-w-5xl mx-auto space-y-10">
             <div class="space-y-2">
@@ -157,11 +123,11 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Brand Identity Development & Voice[cite: 9]</p>
-                        <p>• Personal Branding & Executive Thought Leadership[cite: 6, 9]</p>
-                        <p>• Website Planning & UX Copywriting[cite: 6, 9]</p>
-                        <p>• Information Architecture & Content Strategy[cite: 6, 9]</p>
-                        <p>• Sales Team LinkedIn Profile Positioning[cite: 6, 9]</p>
+                        <p>• Brand Identity Development & Voice</p>
+                        <p>• Personal Branding & Executive Thought Leadership</p>
+                        <p>• Website Planning & UX Copywriting</p>
+                        <p>• Information Architecture & Content Strategy</p>
+                        <p>• Sales Team LinkedIn Profile Positioning</p>
                     </div>
                 </div>
 
@@ -171,11 +137,11 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Editorial Strategy & Supervision[cite: 3, 7, 9]</p>
-                        <p>• Ghostwriting & Opinion Pieces[cite: 3, 9]</p>
-                        <p>• Policy & Conference Declaration Writing[cite: 7, 8]</p>
-                        <p>• Technical B2B Article Writing[cite: 6, 9]</p>
-                        <p>• Long-Form Features & Newsletters[cite: 3, 9]</p>
+                        <p>• Editorial Strategy & Supervision</p>
+                        <p>• Ghostwriting & Opinion Pieces</p>
+                        <p>• Policy & Conference Declaration Writing</p>
+                        <p>• Technical B2B Article Writing</p>
+                        <p>• Long-Form Features & Newsletters</p>
                     </div>
                 </div>
 
@@ -185,31 +151,57 @@
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Short-Form Reel & Video Scriptwriting[cite: 3, 9]</p>
-                        <p>• Creative Direction & Visual Briefs[cite: 3, 5, 9]</p>
-                        <p>• Narrative Carousel Storytelling[cite: 3, 4, 9]</p>
-                        <p>• UGC Campaign Architecture[cite: 5, 9]</p>
-                        <p>• Meta Ad Scripts & Direct Response Copy[cite: 6, 9]</p>
+                        <p>• Short-Form Reel & Video Scriptwriting</p>
+                        <p>• Creative Direction & Visual Briefs</p>
+                        <p>• Narrative Carousel Storytelling</p>
+                        <p>• UGC Campaign Architecture</p>
+                        <p>• Meta Ad Scripts & Direct Response Copy</p>
                     </div>
                 </div>
 
                 <div class="accordion-item group cursor-pointer py-6">
                     <div class="flex justify-between items-center accordion-header">
-                        <h3 class="text-xl md:text-2xl font-bold tracking-tight">04 / Research & Strategy</h3>
+                        <h3 class="text-xl md:text-2xl font-bold tracking-tight">04 / Content Marketing Operations</h3>
                         <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-2">
-                        <p>• Qualitative & Ethnographic Research[cite: 3, 9]</p>
-                        <p>• Case Studies & Policy Concept Notes[cite: 3, 9]</p>
-                        <p>• Curriculum & Training Material Development[cite: 3, 9]</p>
-                        <p>• Cultural Heritage & Field Documentation[cite: 3, 9]</p>
+                        <p>• SEO Strategy & Master Keyword Architecture</p>
+                        <p>• Multi-Stage Email Drip Campaigns & Conversions</p>
+                        <p>• Editorial Calendar & Publishing Workflows</p>
+                        <p>• Organic Social Media Scale & Audience Growth</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item group cursor-pointer py-6">
+                    <div class="flex justify-between items-center accordion-header">
+                        <h3 class="text-xl md:text-2xl font-bold tracking-tight">05 / Communication Strategy</h3>
+                        <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-2">
+                        <p>• Brand Positioning & Narrative Frameworks</p>
+                        <p>• Internal & Stakeholder Communication</p>
+                        <p>• Event & Conference Live Coverage</p>
+                        <p>• Community Engagement & Workshops</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item group cursor-pointer py-6">
+                    <div class="flex justify-between items-center accordion-header">
+                        <h3 class="text-xl md:text-2xl font-bold tracking-tight">06 / Research & Knowledge</h3>
+                        <span class="text-2xl font-light accordion-icon transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-2">
+                        <p>• Qualitative & Ethnographic Research</p>
+                        <p>• Case Studies & Policy Concept Notes</p>
+                        <p>• Curriculum & Training Material Development</p>
+                        <p>• Cultural Heritage & Field Documentation</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Selected Work -->
+    <!-- Section 4: Selected Work -->
     <section id="selected-work" class="py-20 px-6 border-t border-line">
         <div class="max-w-5xl mx-auto space-y-10">
             <div class="space-y-2">
@@ -218,6 +210,7 @@
             </div>
 
             <div class="divide-y divide-line border-y border-line">
+                <!-- Project 1 -->
                 <div class="accordion-item group cursor-pointer py-8">
                     <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
                         <div>
@@ -227,12 +220,13 @@
                         <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-4">
-                        <p><strong>Philosophy:</strong> Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em>[cite: 5] Shifted focus to an identity-first UGC challenge[cite: 5].</p>
-                        <p><strong>Execution:</strong> Owned end-to-end campaign architecture from naming and narrative to mechanics, Instagram reels, carousels, and winner announcements[cite: 5].</p>
-                        <p class="font-mono text-xs text-ink">500K+ Views · 50+ UGC Entries · 2,000+ Follower Growth[cite: 5, 9]</p>
+                        <p><strong>Philosophy:</strong> Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em> November is traditionally a slow window for the trekking industry. Rather than leading with discounts, the campaign shifted focus to an identity-first UGC challenge.</p>
+                        <p><strong>Execution:</strong> Owned end-to-end campaign architecture from naming and narrative to mechanics, Instagram reels, carousels, and winner announcements.</p>
+                        <p class="font-mono text-xs text-ink">500K+ Views · 50+ UGC Entries · 2,000+ Follower Growth · 3 Ambassadors Signed</p>
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="accordion-item group cursor-pointer py-8">
                     <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
                         <div>
@@ -242,12 +236,13 @@
                         <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-4">
-                        <p><strong>Role: Declaration Writer & Team Lead</strong>[cite: 7]</p>
-                        <p>Consolidated multi-session diplomatic discussions across science, sustainability, and development into the official conference declaration document[cite: 7].</p>
-                        <a href="https://docs.google.com/document/d/1pdoV_LfoittQy9FGU8gjWfNfYIoRloD8P2osM7E8K5c/edit?tab=t.0#heading=h.n8ycswiabo17" target="_blank" class="font-mono text-xs text-ink underline block">Read Declaration ↗</a>
+                        <p><strong>Role: Declaration Writer & Team Lead</strong></p>
+                        <p>Consolidated multi-session diplomatic discussions across science, technology, sustainability, and social development into the official conference declaration document. Led a team of 3 editors and 10 volunteers.</p>
+                        <a href="https://docs.google.com/document/d/1pdoV_LfoittQy9FGU8gjWfNfYIoRloD8P2osM7E8K5c/edit?tab=t.0#heading=h.n8ycswiabo17" target="_blank" class="font-mono text-xs text-ink underline block">Read Official Declaration Document ↗</a>
                     </div>
                 </div>
 
+                <!-- Project 3 -->
                 <div class="accordion-item group cursor-pointer py-8">
                     <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
                         <div>
@@ -257,21 +252,143 @@
                         <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-4">
-                        <p><strong>Positioning:</strong> <em>"The construction CRM that does the paperwork."</em>[cite: 6]</p>
-                        <p>Delivered website copy, landing page strategy, Meta ads strategy, and multi-stage email drip campaigns[cite: 1, 6].</p>
+                        <p><strong>Positioning:</strong> <em>"The construction CRM that does the paperwork."</em></p>
+                        <p>Delivered website copy, landing page strategy, Meta ads strategy, and multi-stage email drip campaigns (Founder Journey, Demo Drip, Trial Onboarding).</p>
                     </div>
                 </div>
 
+                <!-- Project 4 -->
                 <div class="accordion-item group cursor-pointer py-8">
                     <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
                         <div>
-                            <span class="text-xs font-mono text-muted uppercase block mb-1">IT Services & Thought Leadership</span>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">IT Services & Executive Personal Brand</span>
                             <h3 class="text-2xl font-bold tracking-tight">Galaxy Weblinks</h3>
                         </div>
                         <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
                     </div>
                     <div class="accordion-content text-muted font-normal text-sm space-y-4">
-                        <p>Authored 150–200 long-form articles, ghostwrote 50+ thought leadership pieces for executive personal branding, and built 20+ sales team LinkedIn profiles[cite: 6, 9].</p>
+                        <p>Authored 150–200 long-form articles, ghostwrote 50+ thought leadership pieces for executive personal branding, built 20+ sales team LinkedIn profiles, and led SEO content strategy.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">HVAC Brand Messaging</span>
+                            <h3 class="text-2xl font-bold tracking-tight">Absolute Comfort Mechanical</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-4">
+                        <p>Led digital messaging framework from scratch for a Dallas-Fort Worth HVAC company. Delivered complete website copy, local SEO content strategy, and founder brand narrative.</p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between accordion-header gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block mb-1">B2B Conversion Funnels</span>
+                            <h3 class="text-2xl font-bold tracking-tight">Email Drip Campaign Frameworks</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand +</span>
+                    </div>
+                    <div class="accordion-content text-muted font-normal text-sm space-y-4">
+                        <p>Architected comprehensive B2B email nurtures tailored across customer intent stages: Founder Member Journey, Demo Drip, Trial-to-Onboarding, and Segmented Cold Outreach Sequences.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Platforms List -->
+            <div class="pt-6">
+                <span class="text-xs font-mono uppercase text-muted block mb-4">Additional Platforms Shaped:</span>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono">
+                    <div class="p-3 border border-line">AnandDamani.com</div>
+                    <div class="p-3 border border-line">Business Bridge Asia</div>
+                    <div class="p-3 border border-line">RTCWeb.in</div>
+                    <div class="p-3 border border-line">Global Peace Foundation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Socials By Me -->
+    <section id="socials" class="py-20 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-10">
+            <div class="space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Social Architecture</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Socials By Me</h2>
+                <p class="text-xs font-mono text-muted uppercase">20M+ Organic Views · 11M+ Single Reel · 50+ Carousels</p>
+            </div>
+
+            <div class="divide-y divide-line border-y border-line">
+                <!-- Reel Group -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex justify-between items-center accordion-header">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block">Scripted & Shot</span>
+                            <h3 class="text-2xl font-bold tracking-tight">Viral Reels & Short Form (11M+ Views)</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Links +</span>
+                    </div>
+                    <div class="accordion-content space-y-4">
+                        <div class="space-y-3 font-mono text-xs">
+                            <a href="https://www.instagram.com/p/DLAY3mRhver/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>POV: Your Honest Trek Guide (11M+ Views)</strong> — Scripted, shot, and directed independently ↗
+                            </a>
+                            <a href="https://www.instagram.com/reels/DR4f66gAaYR/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Pangarchulla Trek Cinematic Voiceover Reel</strong> — Philosophical script ↗
+                            </a>
+                            <a href="https://www.instagram.com/reel/DRKOrQSgZP8/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Weird Questions Trekkers Ask Sales Teams</strong> — Sarcastic audio concept ↗
+                            </a>
+                            <a href="https://www.instagram.com/reel/DQozEqxgbMG/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>GoNutsNovember Explainer Reel</strong> — UGC Campaign Launch ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Group -->
+                <div class="accordion-item group cursor-pointer py-8">
+                    <div class="flex justify-between items-center accordion-header">
+                        <div>
+                            <span class="text-xs font-mono text-muted uppercase block">Brand Storytelling</span>
+                            <h3 class="text-2xl font-bold tracking-tight">Narrative Carousels (50+ Concepts)</h3>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase underline underline-offset-4">Expand Links +</span>
+                    </div>
+                    <div class="accordion-content space-y-4">
+                        <div class="space-y-3 font-mono text-xs">
+                            <a href="https://www.instagram.com/p/DOJIR1rATP_/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Govt Employees: Office Might Pay You to Trek (500K+ Views)</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DNYEK_3BBXB/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Before 1947, These Mountains Weren't Ours (100K+ Views)</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DKmZSNKBIu9/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Turning Back 80m Before Summit at 6300m</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DPoWUcLgkqN/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Diwali Wishlist: Trekker's Edition</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DK9jQMUBb3a/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Your First Will Always Be Bad</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DNx91H_QiG3/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Climbing a Mountain is a Journey Inward</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DLkhhSFhX4V/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Not All Summits Are Physical; Some Are Spiritual</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DNTB-TjBjZK/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>The Mountain We Are Not Allowed to Climb</strong> ↗
+                            </a>
+                            <a href="https://www.instagram.com/p/DUQHLR5gU6S/" target="_blank" class="block p-4 border border-line hover:border-ink">
+                                <strong>Union Budget's Impact on Trekking Industry</strong> ↗
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -311,6 +428,30 @@
                     <span class="text-xs font-mono text-ink">Read ↗</span>
                 </a>
 
+                <a href="https://www.bikatadventures.com/Home/Blog/cold-exposure-testosterone-hack" target="_blank" class="py-5 flex justify-between items-center group block">
+                    <div>
+                        <span class="text-xs font-mono text-muted block">Bikat Adventures</span>
+                        <h3 class="text-lg font-bold tracking-tight group-hover:underline">An Open Letter from Testosterone</h3>
+                    </div>
+                    <span class="text-xs font-mono text-ink">Read ↗</span>
+                </a>
+
+                <a href="https://www.bikatadventures.com/Home/Blog/Women-on-the-trail-trekking-guide" target="_blank" class="py-5 flex justify-between items-center group block">
+                    <div>
+                        <span class="text-xs font-mono text-muted block">Bikat Adventures</span>
+                        <h3 class="text-lg font-bold tracking-tight group-hover:underline">Women on the Trail: Physiology, Periods & Respect in the Mountains</h3>
+                    </div>
+                    <span class="text-xs font-mono text-ink">Read ↗</span>
+                </a>
+
+                <a href="https://www.bikatadventures.com/Home/Blog/Sacred-Treks-in-the-Himalayas" target="_blank" class="py-5 flex justify-between items-center group block">
+                    <div>
+                        <span class="text-xs font-mono text-muted block">Bikat Adventures</span>
+                        <h3 class="text-lg font-bold tracking-tight group-hover:underline">The Spiritual Side of Trekking: Sacred Treks That Heal</h3>
+                    </div>
+                    <span class="text-xs font-mono text-ink">Read ↗</span>
+                </a>
+
                 <a href="https://docs.google.com/document/d/1tet94eMDcyxAqSN85XtNWyWmJLT5d_FC8goicH4ucLQ/edit?tab=t.0" target="_blank" class="py-5 flex justify-between items-center group block">
                     <div>
                         <span class="text-xs font-mono text-muted block">Master's Thesis · BHU</span>
@@ -327,10 +468,51 @@
                     <span class="text-xs font-mono text-ink">Visit ↗</span>
                 </a>
             </div>
+
+            <div class="pt-2">
+                <a href="https://rtcweb.in/blog/" target="_blank" class="text-xs font-mono text-muted hover:text-ink underline">
+                    Explore 50+ B2B Technical WebRTC Blogs at RTCWeb.in ↗
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Section 7: Education & Credentials -->
+    <!-- Section 7: Journeys & Field Notes (Moved to Bottom) -->
+    <section id="journeys" class="py-20 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto space-y-10">
+            <div class="space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-muted">Field Notes</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">The Road & The Trail</h2>
+                <p class="text-sm text-muted max-w-2xl">The way I write and think has been shaped as much by the road as by any office.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-mono">
+                <div class="p-6 border border-line space-y-3">
+                    <span class="text-muted block font-bold uppercase">Narmada Parikrama</span>
+                    <h3 class="text-base font-bold text-ink">3,000 KM On Foot</h3>
+                    <p class="text-muted font-sans text-xs leading-relaxed">
+                        Walked over 3,000 kilometers around the Narmada River across 115 days, carrying everything on my back and depending on the kindness of strangers. Taught me patience, endurance, and quiet observation.
+                    </p>
+                </div>
+                <div class="p-6 border border-line space-y-3">
+                    <span class="text-muted block font-bold uppercase">Mountaineering & Skiing</span>
+                    <h3 class="text-base font-bold text-ink">High-Altitude Discipline</h3>
+                    <p class="text-muted font-sans text-xs leading-relaxed">
+                        Completed formal Basic Mountaineering and Basic Skiing courses in the Himalayas. High-altitude conditions reframed how I approach risk, resilience, and decision-making under pressure.
+                    </p>
+                </div>
+                <div class="p-6 border border-line space-y-3">
+                    <span class="text-muted block font-bold uppercase">Expeditions & Culture</span>
+                    <h3 class="text-base font-bold text-ink">Himalayan Documentation</h3>
+                    <p class="text-muted font-sans text-xs leading-relaxed">
+                        Spent years documenting mountain communities, remote villages, and high-altitude expeditions. Bridging ethnographic observation with brand storytelling for outdoor brands.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Education & Credentials -->
     <section id="experience" class="py-20 px-6 border-t border-line">
         <div class="max-w-5xl mx-auto space-y-8">
             <div class="space-y-2">
@@ -342,11 +524,11 @@
                 <div>
                     <span class="text-xs font-mono text-muted uppercase">Master's Degree</span>
                     <h3 class="text-xl font-bold text-ink">MA in Conflict Management & Development</h3>
-                    <p class="text-xs font-mono text-muted">Banaras Hindu University (UNESCO Chair for Peace)[cite: 9]</p>
+                    <p class="text-xs font-mono text-muted">Banaras Hindu University (UNESCO Chair for Peace)</p>
                 </div>
                 <div class="pt-4 border-t border-line">
                     <span class="text-xs font-mono text-muted uppercase">National Qualification</span>
-                    <p class="text-sm font-bold text-ink">UGC NET-JRF Qualified (Assistant Professor Eligibility)[cite: 9]</p>
+                    <p class="text-sm font-bold text-ink">UGC NET-JRF Qualified (Assistant Professor Eligibility)</p>
                 </div>
             </div>
         </div>
@@ -360,8 +542,49 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Contact Menu and Accordion -->
+    <!-- Visual Notes Photo Overlay Modal (Fixes 404 Error) -->
+    <div id="photos-modal" class="hidden fixed inset-0 bg-canvas/95 z-50 overflow-y-auto p-6 md:p-12">
+        <div class="max-w-6xl mx-auto space-y-8">
+            <div class="flex justify-between items-center border-b border-line pb-6">
+                <div>
+                    <span class="text-xs font-mono text-muted uppercase">Gallery</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold">Visual Notes</h2>
+                </div>
+                <button id="close-photos-btn" class="text-xs font-mono uppercase font-bold text-ink border border-ink px-4 py-2 hover:bg-ink hover:text-canvas">
+                    Close ✕
+                </button>
+            </div>
+            
+            <p class="text-sm text-muted font-light max-w-xl">
+                I like to take pictures, and here are a few. A collection of visual notes from the road, high-altitude trails, and quiet places in between.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
+                <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
+                    <img src="photo1.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
+                    <img src="photo2.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
+                    <img src="photo3.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
+                    <img src="photo4.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
+                    <img src="photo5.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div class="aspect-[4/5] bg-stone-200 overflow-hidden border border-line">
+                    <img src="photo6.jpg" alt="Visual Note" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Engines -->
     <script>
+        // Contact Menu Handler
         const contactBtn = document.getElementById('contact-menu-btn');
         const contactMenu = document.getElementById('contact-menu');
         contactBtn.addEventListener('click', (e) => {
@@ -372,6 +595,22 @@
             contactMenu.classList.add('hidden');
         });
 
+        // Photos Modal Handler
+        const openPhotosBtn = document.getElementById('open-photos-btn');
+        const closePhotosBtn = document.getElementById('close-photos-btn');
+        const photosModal = document.getElementById('photos-modal');
+
+        openPhotosBtn.addEventListener('click', () => {
+            photosModal.classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        });
+
+        closePhotosBtn.addEventListener('click', () => {
+            photosModal.classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        });
+
+        // Universal Accordion Engine
         const accordionItems = document.querySelectorAll('.accordion-item');
         accordionItems.forEach(item => {
             const header = item.querySelector('.accordion-header');
