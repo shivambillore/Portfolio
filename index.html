@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Billore — Writer & Brand Strategist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Georgia', 'Cambria', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .editorial-title { font-family: 'Georgia', serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-stone-200 selection:text-stone-900">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full bg-stone-50/90 backdrop-blur-md z-40 border-b border-stone-200/60">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-medium tracking-tight text-stone-900 editorial-title">Shivam Billore</a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-600">
+                <a href="#about" class="hover:text-stone-900 transition-colors">About</a>
+                <a href="#what-i-do" class="hover:text-stone-900 transition-colors">What I Do</a>
+                <a href="#selected-work" class="hover:text-stone-900 transition-colors">Selected Work</a>
+                <a href="#socials" class="hover:text-stone-900 transition-colors">Socials</a>
+                <a href="#experience" class="hover:text-stone-900 transition-colors">Experience</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex px-4 py-2 text-xs uppercase tracking-widest font-semibold border border-stone-800 text-stone-900 hover:bg-stone-900 hover:text-stone-50 transition-all">
+                Connect
+            </a>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-stone-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-b border-stone-200 px-6 py-6 space-y-4">
+            <a href="#about" class="block text-stone-700 hover:text-stone-900">About</a>
+            <a href="#what-i-do" class="block text-stone-700 hover:text-stone-900">What I Do</a>
+            <a href="#selected-work" class="block text-stone-700 hover:text-stone-900">Selected Work</a>
+            <a href="#socials" class="block text-stone-700 hover:text-stone-900">Socials</a>
+            <a href="#experience" class="block text-stone-700 hover:text-stone-900">Experience</a>
+            <a href="#contact" class="block text-stone-900 font-semibold">Connect & Socials</a>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero Section -->
+    <section class="min-h-screen pt-36 pb-20 px-6 flex items-center max-w-5xl mx-auto">
+        <div class="space-y-8">
+            <div class="inline-block px-3 py-1 bg-stone-200/60 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider">
+                Writer & Brand Strategist
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-normal leading-tight text-stone-900 editorial-title">
+                Hello, I am Shivam
+            </h1>
+            <p class="text-lg md:text-2xl text-stone-600 font-light leading-relaxed max-w-3xl">
+                Communication is more than words. It is how ideas travel, communities form, and brands earn trust. I help organizations shape stories, systems, and strategies that people genuinely connect with.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="#selected-work" class="px-6 py-3 bg-stone-900 text-stone-50 text-sm font-medium hover:bg-stone-800 transition-all rounded-sm shadow-sm">
+                    See My Work
+                </a>
+                <a href="mailto:writetoshivambillore@gmail.com" class="px-6 py-3 border border-stone-300 text-stone-800 text-sm font-medium hover:border-stone-800 hover:bg-stone-100 transition-all rounded-sm">
+                    Send Me an Email
+                </a>
+                <a href="#contact" class="px-6 py-3 border border-stone-300 text-stone-800 text-sm font-medium hover:border-stone-800 hover:bg-stone-100 transition-all rounded-sm">
+                    Connect & Socials
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: About Me -->
+    <section id="about" class="py-24 px-6 bg-stone-100 border-y border-stone-200/80">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5">
+                <div class="aspect-[3/4] bg-stone-200 overflow-hidden rounded-sm shadow-md">
+                    <img src="1000220423_6bf7bfded568810fb28ec1bbe32973e8-9_21_2025, 12_13_22 AM.jpg" alt="Shivam Billore" class="w-full h-full object-cover object-center">
+                </div>
+            </div>
+            <div class="md:col-span-7 space-y-6">
+                <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">About Me</span>
+                <h2 class="text-3xl md:text-4xl text-stone-900 editorial-title">
+                    Building stories, systems, and strategies that drive real connection.
+                </h2>
+                <div class="space-y-4 text-stone-600 leading-relaxed font-light text-base md:text-lg">
+                    <p>
+                        With over 9 years of hands-on experience across travel, IT services, SaaS, and non-profit sectors, I work at the intersection of brand communication, strategic copy, and content operations. Writing came first, followed by editorial direction, research, positioning, and digital marketing.
+                    </p>
+                    <p>
+                        My work focuses on transforming digital presences into high-performing, measurable content ecosystems. Whether architecting complete brand voices from scratch, conceptualizing viral campaigns, or translating complex technical frameworks into accessible stories, I ensure that design and words complement each other seamlessly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: What I Do -->
+    <section id="what-i-do" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="space-y-4 mb-16">
+            <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">Core Expertise</span>
+            <h2 class="text-3xl md:text-4xl text-stone-900 editorial-title">What I Do</h2>
+            <p class="text-stone-600 font-light max-w-2xl">A strategic overview of services spanning brand communication, editorial publishing, and multimedia execution.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="p-8 bg-stone-100/60 border border-stone-200/80 rounded-sm hover:border-stone-400 transition-all">
+                <h3 class="text-lg font-medium text-stone-900 mb-4 editorial-title">Content & Marketing</h3>
+                <ul class="space-y-2 text-sm text-stone-600 font-light">
+                    <li>• Content Strategy & Marketing</li>
+                    <li>• Brand Storytelling & Positioning</li>
+                    <li>• Campaign Planning & Email Marketing</li>
+                    <li>• On-Page & Off-Page SEO Strategy</li>
+                    <li>• Digital & Social Media Strategy</li>
+                </ul>
+            </div>
+            <div class="p-8 bg-stone-100/60 border border-stone-200/80 rounded-sm hover:border-stone-400 transition-all">
+                <h3 class="text-lg font-medium text-stone-900 mb-4 editorial-title">Branding & Digital Presence</h3>
+                <ul class="space-y-2 text-sm text-stone-600 font-light">
+                    <li>• Brand Identity Development</li>
+                    <li>• Personal Branding & Thought Leadership</li>
+                    <li>• Website Planning & Copywriting</li>
+                    <li>• Information Architecture & UX Copy</li>
+                    <li>• LinkedIn Profile Positioning</li>
+                </ul>
+            </div>
+            <div class="p-8 bg-stone-100/60 border border-stone-200/80 rounded-sm hover:border-stone-400 transition-all">
+                <h3 class="text-lg font-medium text-stone-900 mb-4 editorial-title">Editorial & Publishing</h3>
+                <ul class="space-y-2 text-sm text-stone-600 font-light">
+                    <li>• Editorial Strategy & Supervision</li>
+                    <li>• Ghostwriting & Opinion Pieces</li>
+                    <li>• Copy Editing & Proofreading</li>
+                    <li>• Long-form Features & Newsletters</li>
+                    <li>• Policy & Declaration Writing</li>
+                </ul>
+            </div>
+            <div class="p-8 bg-stone-100/60 border border-stone-200/80 rounded-sm hover:border-stone-400 transition-all">
+                <h3 class="text-lg font-medium text-stone-900 mb-4 editorial-title">Multimedia & Campaigns</h3>
+                <ul class="space-y-2 text-sm text-stone-600 font-light">
+                    <li>• Video & Reel Scriptwriting</li>
+                    <li>• Creative Direction & Briefs</li>
+                    <li>• Carousel Storytelling</li>
+                    <li>• UGC Campaign Architecture</li>
+                    <li>• Storyboarding & Scripting</li>
+                </ul>
+            </div>
+            <div class="p-8 bg-stone-100/60 border border-stone-200/80 rounded-sm hover:border-stone-400 transition-all">
+                <h3 class="text-lg font-medium text-stone-900 mb-4 editorial-title">Community & Strategy</h3>
+                <ul class="space-y-2 text-sm text-stone-600 font-light">
+                    <li>• Narrative Strategy & Messaging</li>
+                    <li>• Stakeholder & Internal Communications</li>
+                    <li>• Event & Conference Communications</li>
+                    <li>• Community Engagement & Newsletters</li>
+                    <li>• Curriculum & Training Development</li>
+                </ul>
+            </div>
+            <div class="p-8 bg-stone-100/60 border border-stone-200/80 rounded-sm hover:border-stone-400 transition-all">
+                <h3 class="text-lg font-medium text-stone-900 mb-4 editorial-title">Research & Knowledge</h3>
+                <ul class="space-y-2 text-sm text-stone-600 font-light">
+                    <li>• Qualitative & Ethnographic Research</li>
+                    <li>• Case Studies & Concept Notes</li>
+                    <li>• Knowledge Management</li>
+                    <li>• Literature Reviews</li>
+                    <li>• Cultural Documentation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Selected Work -->
+    <section id="selected-work" class="py-24 px-6 bg-stone-900 text-stone-100">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <div class="space-y-4">
+                <span class="text-xs uppercase tracking-widest text-stone-400 font-semibold">Portfolio</span>
+                <h2 class="text-3xl md:text-5xl editorial-title text-stone-50">Selected Work</h2>
+                <p class="text-stone-400 font-light max-w-2xl">A curated selection of campaigns, international declarations, website transformations, and strategic communication frameworks.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap gap-3 border-b border-stone-800 pb-4" id="project-tabs">
+                <button class="tab-btn active px-4 py-2 text-xs uppercase tracking-wider font-medium border-b-2 border-stone-100 text-stone-100" data-target="all">All Projects</button>
+                <button class="tab-btn px-4 py-2 text-xs uppercase tracking-wider font-medium text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="campaigns">Campaigns</button>
+                <button class="tab-btn px-4 py-2 text-xs uppercase tracking-wider font-medium text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="websites">Websites Shaped</button>
+                <button class="tab-btn px-4 py-2 text-xs uppercase tracking-wider font-medium text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="editorial">Editorial & Forums</button>
+                <button class="tab-btn px-4 py-2 text-xs uppercase tracking-wider font-medium text-stone-400 hover:text-stone-200 border-b-2 border-transparent" data-target="email">Email Drips</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: Go Nuts November -->
+                <div class="project-card campaigns p-6 bg-stone-800/60 border border-stone-700/60 rounded-sm hover:border-stone-500 transition-all flex flex-col justify-between" data-category="campaigns">
+                    <div>
+                        <span class="text-xs font-mono text-stone-400 uppercase">UGC & Brand Campaign</span>
+                        <h3 class="text-xl font-medium text-stone-100 my-3 editorial-title">Go Nuts November — Bikat Adventures</h3>
+                        <p class="text-xs text-stone-300 font-light leading-relaxed mb-6">A month-long campaign transforming the slowest trekking month into an identity-first community movement without relying on discounts.</p>
+                    </div>
+                    <button class="modal-open-btn inline-flex items-center text-xs font-medium uppercase tracking-wider text-stone-200 hover:text-white" data-modal="modal-gonuts">
+                        View Detailed Case Study <span class="ml-2">→</span>
+                    </button>
+                </div>
+
+                <!-- Project 2: Russian-Indian Youth Forum -->
+                <div class="project-card editorial p-6 bg-stone-800/60 border border-stone-700/60 rounded-sm hover:border-stone-500 transition-all flex flex-col justify-between" data-category="editorial">
+                    <div>
+                        <span class="text-xs font-mono text-stone-400 uppercase">International Diplomacy</span>
+                        <h3 class="text-xl font-medium text-stone-100 my-3 editorial-title">II Russian-Indian Youth Forum</h3>
+                        <p class="text-xs text-stone-300 font-light leading-relaxed mb-6">Authored the official conference declaration, consolidating discussions across multiple thematic tracks into policy-oriented language.</p>
+                    </div>
+                    <button class="modal-open-btn inline-flex items-center text-xs font-medium uppercase tracking-wider text-stone-200 hover:text-white" data-modal="modal-forum">
+                        View Detailed Case Study <span class="ml-2">→</span>
+                    </button>
+                </div>
+
+                <!-- Project 3: LynkedUp Pro CRM -->
+                <div class="project-card websites p-6 bg-stone-800/60 border border-stone-700/60 rounded-sm hover:border-stone-500 transition-all flex flex-col justify-between" data-category="websites">
+                    <div>
+                        <span class="text-xs font-mono text-stone-400 uppercase">SaaS & CRM</span>
+                        <h3 class="text-xl font-medium text-stone-100 my-3 editorial-title">LynkedUp Pro</h3>
+                        <p class="text-xs text-stone-300 font-light leading-relaxed mb-6">Brand strategy, website messaging, and lead funnel communication for a construction CRM platform built for contractors.</p>
+                    </div>
+                    <button class="modal-open-btn inline-flex items-center text-xs font-medium uppercase tracking-wider text-stone-200 hover:text-white" data-modal="modal-lynkedup">
+                        View Detailed Case Study <span class="ml-2">→</span>
+                    </button>
+                </div>
+
+                <!-- Project 4: Galaxy Weblinks -->
+                <div class="project-card websites p-6 bg-stone-800/60 border border-stone-700/60 rounded-sm hover:border-stone-500 transition-all flex flex-col justify-between" data-category="websites">
+                    <div>
+                        <span class="text-xs font-mono text-stone-400 uppercase">IT Services</span>
+                        <h3 class="text-xl font-medium text-stone-100 my-3 editorial-title">Galaxy Weblinks</h3>
+                        <p class="text-xs text-stone-300 font-light leading-relaxed mb-6">Website positioning, copywriting, SEO strategy, and thought leadership over 3.5 years across multiple IT sub-brands.</p>
+                    </div>
+                    <button class="modal-open-btn inline-flex items-center text-xs font-medium uppercase tracking-wider text-stone-200 hover:text-white" data-modal="modal-galaxy">
+                        View Detailed Case Study <span class="ml-2">→</span>
+                    </button>
+                </div>
+
+                <!-- Project 5: Absolute Comfort Mechanical -->
+                <div class="project-card websites p-6 bg-stone-800/60 border border-stone-700/60 rounded-sm hover:border-stone-500 transition-all flex flex-col justify-between" data-category="websites">
+                    <div>
+                        <span class="text-xs font-mono text-stone-400 uppercase">HVAC Services</span>
+                        <h3 class="text-xl font-medium text-stone-100 my-3 editorial-title">Absolute Comfort Mechanical</h3>
+                        <p class="text-xs text-stone-300 font-light leading-relaxed mb-6">Complete website copy and brand messaging framework simplifying technical services for DFW homeowners and commercial clients.</p>
+                    </div>
+                    <button class="modal-open-btn inline-flex items-center text-xs font-medium uppercase tracking-wider text-stone-200 hover:text-white" data-modal="modal-absolute">
+                        View Detailed Case Study <span class="ml-2">→</span>
+                    </button>
+                </div>
+
+                <!-- Project 6: Email Drip Frameworks -->
+                <div class="project-card email p-6 bg-stone-800/60 border border-stone-700/60 rounded-sm hover:border-stone-500 transition-all flex flex-col justify-between" data-category="email">
+                    <div>
+                        <span class="text-xs font-mono text-stone-400 uppercase">Funnel Copywriting</span>
+                        <h3 class="text-xl font-medium text-stone-100 my-3 editorial-title">B2B & Founder Drip Campaigns</h3>
+                        <p class="text-xs text-stone-300 font-light leading-relaxed mb-6">Multi-phase email nurtures, founder onboarding journeys, and checkout recovery sequences designed for conversion.</p>
+                    </div>
+                    <button class="modal-open-btn inline-flex items-center text-xs font-medium uppercase tracking-wider text-stone-200 hover:text-white" data-modal="modal-emaildrips">
+                        View Detailed Case Study <span class="ml-2">→</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Additional Websites Worked On List -->
+            <div class="pt-12 border-t border-stone-800">
+                <h4 class="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-6">Additional Digital Projects Shaped</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-light text-stone-300">
+                    <div class="p-3 bg-stone-800/40 rounded border border-stone-800">
+                        <strong class="block text-stone-100 font-normal">AnandDamani.com</strong> Personal Branding
+                    </div>
+                    <div class="p-3 bg-stone-800/40 rounded border border-stone-800">
+                        <strong class="block text-stone-100 font-normal">Business Bridge Asia</strong> Market Entry
+                    </div>
+                    <div class="p-3 bg-stone-800/40 rounded border border-stone-800">
+                        <strong class="block text-stone-100 font-normal">RTCWeb.com</strong> WebRTC / Tech
+                    </div>
+                    <div class="p-3 bg-stone-800/40 rounded border border-stone-800">
+                        <strong class="block text-stone-100 font-normal">Global Peace Foundation</strong> NGO
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Socials By Me -->
+    <section id="socials" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="space-y-4 mb-16">
+            <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">Social Impact</span>
+            <h2 class="text-3xl md:text-4xl text-stone-900 editorial-title">Socials By Me</h2>
+            <p class="text-stone-600 font-light max-w-2xl">A collection of social media architecture across brands, campaigns, and communities—where strategy and storytelling drive real scale.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="p-8 bg-stone-100/80 border border-stone-200 rounded-sm text-center">
+                <span class="block text-4xl md:text-5xl font-normal text-stone-900 editorial-title mb-2">20M+</span>
+                <span class="text-xs uppercase tracking-wider text-stone-500 font-medium">Organic Views Generated</span>
+            </div>
+            <div class="p-8 bg-stone-100/80 border border-stone-200 rounded-sm text-center">
+                <span class="block text-4xl md:text-5xl font-normal text-stone-900 editorial-title mb-2">11M+</span>
+                <span class="text-xs uppercase tracking-wider text-stone-500 font-medium">Single Reel Performance</span>
+            </div>
+            <div class="p-8 bg-stone-100/80 border border-stone-200 rounded-sm text-center">
+                <span class="block text-4xl md:text-5xl font-normal text-stone-900 editorial-title mb-2">50+</span>
+                <span class="text-xs uppercase tracking-wider text-stone-500 font-medium">Carousels & Concepts</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-8 bg-stone-50 border border-stone-200 rounded-sm space-y-4">
+                <span class="text-xs font-mono text-stone-400 uppercase">Viral Content Execution</span>
+                <h3 class="text-xl text-stone-900 editorial-title">Reel & Short Scriptwriting</h3>
+                <p class="text-sm text-stone-600 font-light leading-relaxed">
+                    Independently conceptualized, scripted, shot, and published short-form video assets across travel and adventure domains. Highlight includes scripting and executing the viral <em>"POV: Your Honest Trek Guide"</em> reel, achieving over 11 million organic views.
+                </p>
+            </div>
+            <div class="p-8 bg-stone-50 border border-stone-200 rounded-sm space-y-4">
+                <span class="text-xs font-mono text-stone-400 uppercase">Audience & Community Growth</span>
+                <h3 class="text-xl text-stone-900 editorial-title">Carousels & Storytelling</h3>
+                <p class="text-sm text-stone-600 font-light leading-relaxed">
+                    Designed over 50 educational and brand storytelling carousels, driving Instagram audience growth from 48K to 60K followers in 6 to 8 months for Bikat Adventures. Covered live event stories capturing millions of impressions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Experience & Resume -->
+    <section id="experience" class="py-24 px-6 bg-stone-100 border-t border-stone-200/80">
+        <div class="max-w-4xl mx-auto space-y-12">
+            <div class="space-y-4">
+                <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">Career History</span>
+                <h2 class="text-3xl md:text-4xl text-stone-900 editorial-title">Work Experience</h2>
+            </div>
+
+            <div class="space-y-12 divide-y divide-stone-200">
+                <div class="pt-8 first:pt-0 space-y-3">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between text-stone-900">
+                        <h3 class="text-xl font-medium editorial-title">Bikat Adventures — Content Manager</h3>
+                        <span class="text-xs font-mono text-stone-500">May 2025 – March 2026</span>
+                    </div>
+                    <p class="text-sm text-stone-600 font-light">
+                        Led full content operations, social media, and SEO strategy. Scaled audience by 25% (48K to 60K), generated 20M+ organic views, launched GoNutsNovember UGC campaign, over-hauled SEO architecture with 500+ keywords, and authored brand newsletters.
+                    </p>
+                </div>
+
+                <div class="pt-8 space-y-3">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between text-stone-900">
+                        <h3 class="text-xl font-medium editorial-title">Freelance Brand & Content Strategist</h3>
+                        <span class="text-xs font-mono text-stone-500">April 2022 – Present</span>
+                    </div>
+                    <p class="text-sm text-stone-600 font-light">
+                        Architected digital identities for 5 brands including LynkedUp Pro, Absolute Comfort, AchievAR, and Insignia Consultancy. Authored website copy, social roadmaps, and content systems from scratch.
+                    </p>
+                </div>
+
+                <div class="pt-8 space-y-3">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between text-stone-900">
+                        <h3 class="text-xl font-medium editorial-title">Galaxy Weblinks Inc. — Content Marketing Lead</h3>
+                        <span class="text-xs font-mono text-stone-500">May 2018 – March 2022</span>
+                    </div>
+                    <p class="text-sm text-stone-600 font-light">
+                        Authored 150–200 long-form articles, ghostwrote 50+ thought leadership pieces for executive personal branding, built 20+ sales team LinkedIn profiles, and managed digital marketing content strategy across multiple channels.
+                    </p>
+                </div>
+
+                <div class="pt-8 space-y-3">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between text-stone-900">
+                        <h3 class="text-xl font-medium editorial-title">India Infotech — Content Writer & Editor</h3>
+                        <span class="text-xs font-mono text-stone-500">Feb 2017 – May 2018</span>
+                    </div>
+                    <p class="text-sm text-stone-600 font-light">
+                        Produced high-volume SEO-optimized content across international markets, covering 10+ industries. Promoted to editor within 12 months for quality supervision.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-stone-300 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                <div>
+                    <h4 class="font-medium text-stone-900 mb-2 editorial-title">Education</h4>
+                    <p class="text-stone-600 font-light">MA in Conflict Management & Development — Banaras Hindu University</p>
+                    <p class="text-stone-600 font-light">B.Com (Honours) in Management & Commerce</p>
+                </div>
+                <div>
+                    <h4 class="font-medium text-stone-900 mb-2 editorial-title">Qualifications</h4>
+                    <p class="text-stone-600 font-light">UGC NET-JRF Qualified (Assistant Professor eligibility)</p>
+                    <p class="text-stone-600 font-light">Basic Mountaineering Course & Basic Skiing Course</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Contact & Socials (OVERFLOW FIXED HERE) -->
+    <section id="contact" class="py-24 px-6 bg-stone-900 text-stone-50">
+        <div class="max-w-5xl mx-auto space-y-12 text-center">
+            <div class="space-y-4">
+                <span class="text-xs uppercase tracking-widest text-stone-400 font-semibold">Get In Touch</span>
+                <h2 class="text-3xl md:text-5xl editorial-title">Let’s Shape Something Meaningful</h2>
+                <p class="text-stone-400 font-light max-w-xl mx-auto text-sm md:text-base">
+                    Whether you are building a new brand, refining an existing voice, or scaling a content ecosystem, I’m always open to discussing good work.
+                </p>
+            </div>
+
+            <!-- Responsive, non-overflowing contact grid -->
+            <div class="pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <a href="mailto:writetoshivambillore@gmail.com" class="p-6 bg-stone-800/80 border border-stone-800 rounded-sm hover:border-stone-600 transition-all block overflow-hidden">
+                    <span class="text-xs text-stone-400 block font-mono mb-2">Email</span>
+                    <span class="text-xs md:text-sm font-medium text-stone-200 block break-all leading-snug">writetoshivambillore@gmail.com</span>
+                </a>
+                <a href="https://linkedin.com/in/shivambillore" target="_blank" class="p-6 bg-stone-800/80 border border-stone-800 rounded-sm hover:border-stone-600 transition-all block overflow-hidden">
+                    <span class="text-xs text-stone-400 block font-mono mb-2">LinkedIn</span>
+                    <span class="text-xs md:text-sm font-medium text-stone-200 block break-all leading-snug">linkedin.com/in/shivambillore</span>
+                </a>
+                <a href="https://instagram.com/shivyaatra" target="_blank" class="p-6 bg-stone-800/80 border border-stone-800 rounded-sm hover:border-stone-600 transition-all block overflow-hidden">
+                    <span class="text-xs text-stone-400 block font-mono mb-2">Instagram</span>
+                    <span class="text-xs md:text-sm font-medium text-stone-200 block break-all leading-snug">@shivyaatra</span>
+                </a>
+                <a href="https://wa.me/918818869199" target="_blank" class="p-6 bg-stone-800/80 border border-stone-800 rounded-sm hover:border-stone-600 transition-all block overflow-hidden">
+                    <span class="text-xs text-stone-400 block font-mono mb-2">WhatsApp</span>
+                    <span class="text-xs md:text-sm font-medium text-stone-200 block break-all leading-snug">+91 8818869199</span>
+                </a>
+            </div>
+
+            <div class="pt-12 text-xs text-stone-500 font-light border-t border-stone-800">
+                © Shivam Billore. Designed & developed with clean editorial standards.
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILED MODALS CONTAINER -->
+    
+    <!-- Modal 1: Go Nuts November -->
+    <div id="modal-gonuts" class="modal hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
+            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
+                <div>
+                    <span class="text-xs font-mono text-stone-400 uppercase">Case Study</span>
+                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">Go Nuts November — Bikat Adventures</h3>
+                </div>
+                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+            </div>
+            <div class="space-y-6 text-sm font-light text-stone-300 leading-relaxed">
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Campaign Philosophy</h4>
+                    <p>Go Nuts November was built around a singular idea: <em>"Celebrate the tribe that does hard things on purpose."</em> November is traditionally a slow window for the trekking industry before winter sets in. Rather than leading with heavy discounts, the campaign shifted focus from "Buy a trek" to "Become part of the tribe," inviting participants to demonstrate grit through a month-long UGC challenge.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">My Responsibilities & Execution</h4>
+                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
+                        <li>Owned end-to-end campaign architecture from naming and brand narrative to mechanics and community language.</li>
+                        <li>Scripted and directed kickoff reels, explainer posts, narrative carousels, and meme assets across 7 weeks.</li>
+                        <li>Structured micro-challenge prompts, daily story reshares, live polls, and weekly leaderboards.</li>
+                        <li>Managed community communication, influencer/creator alumni outreach, and final winner announcements.</li>
+                    </ul>
+                </div>
+                <div class="bg-stone-800/80 p-6 rounded border border-stone-700/60">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-3">Key Results</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                        <div><span class="block text-xl font-normal text-stone-100 editorial-title">300K+</span><span class="text-[10px] uppercase text-stone-400">Campaign Views</span></div>
+                        <div><span class="block text-xl font-normal text-stone-100 editorial-title">50+</span><span class="text-[10px] uppercase text-stone-400">UGC Entries</span></div>
+                        <div><span class="block text-xl font-normal text-stone-100 editorial-title">2,000+</span><span class="text-[10px] uppercase text-stone-400">Follower Growth</span></div>
+                        <div><span class="block text-xl font-normal text-stone-100 editorial-title">25+</span><span class="text-[10px] uppercase text-stone-400">Campaign Assets</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Russian-Indian Youth Forum -->
+    <div id="modal-forum" class="modal hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
+            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
+                <div>
+                    <span class="text-xs font-mono text-stone-400 uppercase">Diplomatic Editorial</span>
+                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">II Russian-Indian Youth Forum</h3>
+                </div>
+                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+            </div>
+            <div class="space-y-6 text-sm font-light text-stone-300 leading-relaxed">
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Role: Declaration Writer & Team Lead</h4>
+                    <p>I was invited to contribute to the II Russian-Indian Youth Forum as the lead Declaration Writer, working across bilateral thematic tracks including science & technology, sustainability, social development, and women’s leadership.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Core Deliverables</h4>
+                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
+                        <li>Consolidated multi-session discussions from moderators and international delegates into policy-oriented, diplomatic language.</li>
+                        <li>Synthesized bilateral recommendations into a formal Declaration document reflecting collective conference outcomes.</li>
+                        <li>Led an editorial team of 3 editors and 10 volunteers to review and refine language across submissions under tight event timelines.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: LynkedUp Pro CRM -->
+    <div id="modal-lynkedup" class="modal hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
+            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
+                <div>
+                    <span class="text-xs font-mono text-stone-400 uppercase">SaaS & CRM</span>
+                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">LynkedUp Pro — Brand Architecture</h3>
+                </div>
+                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+            </div>
+            <div class="space-y-6 text-sm font-light text-stone-300 leading-relaxed">
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Positioning & Strategy</h4>
+                    <p>LynkedUp Pro is a SaaS platform built for roofing contractors and construction teams. My role focused on translating complex AI software capabilities into straightforward, benefit-led communication centered around one core truth: <em>"The construction CRM that does the paperwork."</em></p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Key Accomplishments</h4>
+                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
+                        <li>Developed full website copywriting, messaging hierarchy, and landing page layouts.</li>
+                        <li>Architected Meta advertising campaigns, ad scripting, and customer acquisition messaging.</li>
+                        <li>Planned lead journey maps and authored multi-stage email drip campaigns for Founder Members, Demo leads, and Trial users.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Galaxy Weblinks -->
+    <div id="modal-galaxy" class="modal hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
+            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
+                <div>
+                    <span class="text-xs font-mono text-stone-400 uppercase">IT Services</span>
+                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">Galaxy Weblinks — Content Marketing Lead</h3>
+                </div>
+                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+            </div>
+            <div class="space-y-6 text-sm font-light text-stone-300 leading-relaxed">
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">3.5 Year Tenure Overview</h4>
+                    <p>Over three and a half years, I led digital communication, website copywriting, and content marketing across multiple sub-brands within Galaxy Weblinks, balancing technical accuracy with clear brand storytelling.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Core Deliverables</h4>
+                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
+                        <li>Authored 150–200 long-form articles covering WebRTC, cloud infrastructure, UI/UX, e-commerce, and digital transformation.</li>
+                        <li>Ghostwrote 50+ thought leadership articles for executive personal branding on LinkedIn and industry portals.</li>
+                        <li>Built 20+ sales team LinkedIn profiles from scratch, positioning representatives effectively for outbound credibility.</li>
+                        <li>Managed SEO strategy, keyword research, and multi-channel social media platforms.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Absolute Comfort -->
+    <div id="modal-absolute" class="modal hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
+            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
+                <div>
+                    <span class="text-xs font-mono text-stone-400 uppercase">HVAC Brand Positioning</span>
+                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">Absolute Comfort Mechanical</h3>
+                </div>
+                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+            </div>
+            <div class="space-y-6 text-sm font-light text-stone-300 leading-relaxed">
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Brand Strategy & Website Copy</h4>
+                    <p>Absolute Comfort Mechanical is a Dallas-Fort Worth HVAC company. I led the brand's digital messaging framework from the ground up, turning technical furnace/AC repair services into clear, trustworthy communication that builds local credibility.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Deliverables</h4>
+                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
+                        <li>Complete website copywriting across homepage, service pages, and commercial HVAC pages.</li>
+                        <li>Local SEO content architecture targeting Dallas-Fort Worth service keywords.</li>
+                        <li>Brand story, founder narrative, and social media content strategy.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6: Email Drips -->
+    <div id="modal-emaildrips" class="modal hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-stone-900 text-stone-100 max-w-3xl w-full p-8 md:p-10 rounded-sm border border-stone-700 max-h-[90vh] overflow-y-auto space-y-6">
+            <div class="flex justify-between items-start border-b border-stone-800 pb-4">
+                <div>
+                    <span class="text-xs font-mono text-stone-400 uppercase">Funnel Architecture</span>
+                    <h3 class="text-2xl md:text-3xl editorial-title text-stone-50 mt-1">B2B & Founder Drip Campaigns</h3>
+                </div>
+                <button class="modal-close text-stone-400 hover:text-white text-2xl font-light">✕</button>
+            </div>
+            <div class="space-y-6 text-sm font-light text-stone-300 leading-relaxed">
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Multi-Tiered Conversion Sequences</h4>
+                    <p>Designed and authored comprehensive email nurtures tailored across different customer intent stages, removing fluff and focusing on objection-handling and clear value.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-400 font-mono mb-2">Sequences Built</h4>
+                    <ul class="list-disc pl-5 space-y-1.5 text-stone-300">
+                        <li><strong>Founder Member Journey:</strong> Pre-registration and account activation nurtures.</li>
+                        <li><strong>Founder Checkout Recovery:</strong> Objection-handling sequence for abandoned checkout intent.</li>
+                        <li><strong>Demo Drip:</strong> Pre-call prep and post-demo nurture branching for attendees and no-shows.</li>
+                        <li><strong>Trial-to-Onboarding:</strong> Step-by-step feature activation guiding contractors to their first win.</li>
+                        <li><strong>Cold Outreach Sequences:</strong> Target segment messaging for Business Owners, Operations Managers, and Sales Leaders.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Portfolio Tabs Filtering
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => {
+                    b.classList.remove('active', 'border-stone-100', 'text-stone-100');
+                    b.classList.add('border-transparent', 'text-stone-400');
+                });
+                btn.classList.add('active', 'border-stone-100', 'text-stone-100');
+                btn.classList.remove('border-transparent', 'text-stone-400');
+
+                const target = btn.getAttribute('data-target');
+                projectCards.forEach(card => {
+                    if (target === 'all' || card.getAttribute('data-category') === target) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Open / Close Logic
+        const modalOpenBtns = document.querySelectorAll('.modal-open-btn');
+        const modalCloseBtns = document.querySelectorAll('.modal-close');
+        const modals = document.querySelectorAll('.modal');
+
+        modalOpenBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modalId = btn.getAttribute('data-modal');
+                document.getElementById(modalId).classList.remove('hidden');
+            });
+        });
+
+        modalCloseBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal').classList.add('hidden');
+            });
+        });
+
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
